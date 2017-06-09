@@ -1,0 +1,23 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-9 col-offset-lg-1">
+			<h2>Route on Kubernetes</h2>
+			<div style="width:100%   ;height:300px" id="map"></div>
+				<p>The distance is {{ dist | distance }}</p>
+		</div>
+	</div>
+	<div class="row" *ngFor="let wp of waypoints;">
+		<div class="col-lg-2 col-offset-lg-1">
+			<h3>{{wp.name}}</h3>
+			<p>{{wp.address}}</p>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+ 

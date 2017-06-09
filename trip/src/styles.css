@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+.middle-box {
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -200px;
+  z-index: 100;
+}
+.lockscreen.middle-box {
+  width: 200px;
+  margin-left: -100px;
+  margin-top: -190px;
+}
+.loginscreen.middle-box {
+  width: 300px;
+  margin-left: -150px;
+  margin-top: -330px;
+}
+.loginColumns {
+  width: 760px;
+  margin: 8% auto 0;
+}
+.logo-name {
+  color: #e6e6e6;
+  font-size: 180px;
+  font-weight: 800;
+  letter-spacing: -10px;
+  margin-bottom: 0px;
+}
+.middle-box h1 {
+  font-size: 170px;
+}
+.wrapper .middle-box {
+  margin-top: -120px;
+}

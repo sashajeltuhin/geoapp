@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: acpgeo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        api: acpgeo
+    spec:
+      containers:
+      - name: geoapi
+        image: docker.io/sashaz/acpgeo:v2
+        env:
+        - name: GEO_KEY
+          value: AIzaSyDZszKJ0a72ED1ragcd0s3Eks3QI2wc6-I
+        - name: GEO_TITLE
+          value: 'Driving on '
+        - name: GEO_PLACEHOLDER
+          value: 'Enter something... '
+        ports:
+        - containerPort: 80
+        args:
+        - node
+        - server.js

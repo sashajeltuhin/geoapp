@@ -1,0 +1,7 @@
+#!/bin/bash
+docker stop osrm-api
+docker stop geoapi
+docker stop geoweb
+docker start osrm-api
+docker start geoapi
+docker start geoweb

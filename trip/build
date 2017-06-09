@@ -1,0 +1,4 @@
+#!/bin/bash
+ng build
+cp -r ./src/js ./dist/js 
+cp -r ./src/assets ./dist/assets

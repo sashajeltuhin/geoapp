@@ -1,0 +1,56 @@
+<div class="container">
+	<div class="row">
+	  <div class="col-lg-3 col-lg-offset-1" style="margin:auto;height:50px">
+	  	<p>{{labels.title}}</p>
+	    <a href="https://kubernetes.io"><img src="assets/img/kubernetes-logo.png" height="50px" width="50px" alt="Kubernetes Logo"></a>
+	  </div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-1">
+			<form (keydown)="searchFrom($event)">
+				<div class="form-group">
+					<label>From</label>
+					<div class="input-group">
+					<input type="text" placeholder="{{labels.placeholder}}"  class="form-control" id="from"
+	         [(ngModel)]="model.from" name="from">
+	         	<span class="input-group-btn">
+        				<button class="btn btn-secondary" type="button" (click)="clickFrom()">...</button>
+      				</span>
+      			 </div>
+				</div>
+				</form>
+				<div *ngIf="frompoints && frompoints.length > 1" style="color:#080;margin:10px">Click on the desired venue to put it on the map</div>
+				<div style="cursor:pointer" *ngFor="let poi of frompoints;">
+					  <p (click)="confirmFrom(poi)">{{poi.address}}</p>
+				</div>
+		</div>
+		<div class="col-lg-4 col-lg-offset-1">
+			<form (keydown)="searchTo($event)">
+				<div class="form-group">
+					<label>To</label>
+					<div class="input-group">
+					<input type="text" placeholder="{{labels.placeholder}}"  class="form-control" id="to"
+	         [(ngModel)]="model.to" name="to">
+	         		<span class="input-group-btn">
+        				<button class="btn btn-secondary" type="button" (click)="clickTo()">...</button>
+      				</span>
+      			 </div>
+				</div>
+				<div *ngIf="topoints && topoints.length > 1" style="color:#080;margin:10px">Click on the desired venue to put it on the map</div>
+				<div style="cursor:pointer" *ngFor="let poi of topoints;">
+					  <p (click)="confirmTo(poi)">{{poi.address}}</p>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-1 col-lg-offset-1">
+			<button (click)="onSubmit()">Route...	</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-9 col-lg-offset-1">
+			<div style="margin-top:10px;width:100%;height:300px" id="smap"></div>
+		</div>
+	</div>
+</div>
