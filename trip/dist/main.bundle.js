@@ -1,18 +1,18 @@
 webpackJsonp([1,4],{
 
-/***/ 131:
+/***/ 132:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_of__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_of__ = __webpack_require__(552);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_do__ = __webpack_require__(544);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_do__ = __webpack_require__(555);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_do___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_do__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_delay__ = __webpack_require__(543);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_delay__ = __webpack_require__(554);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_delay___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_delay__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__handler_service__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__handler_service__ = __webpack_require__(197);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -76,66 +76,23 @@ var AuthService = (function () {
     return AuthService;
     var _a, _b;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/auth.service.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/auth.service.js.map
 
 /***/ }),
 
-/***/ 132:
+/***/ 133:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrorService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var ErrorService = (function () {
-    function ErrorService() {
-    }
-    ErrorService.prototype.getError = function () {
-        return this.errObj;
-    };
-    ErrorService.prototype.recordError = function (err, router) {
-        this.errObj = err;
-        if (router) {
-            if (this.errObj.code == 401) {
-                router.navigate(['/login']);
-            }
-            else {
-                router.navigate(['/oops']);
-            }
-        }
-    };
-    ErrorService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
-        __metadata('design:paramtypes', [])
-    ], ErrorService);
-    return ErrorService;
-}());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/error.service.js.map
-
-/***/ }),
-
-/***/ 194:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_auth_service__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__handler_service__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_auth_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__handler_service__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(553);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(545);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(556);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GeoService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -168,10 +125,30 @@ var GeoService = (function () {
             .map(this.extractData)
             .catch(this.handler.handleError);
     };
-    GeoService.prototype.getRoute = function (search) {
+    GeoService.prototype.hack = function (path) {
+        var obj = {};
+        obj.path = path;
         this.addAuthHeader();
-        this.url = this.url.replace("^^search^^", search);
-        return this.http.post(this.url + "map", { "search": search }, { headers: this.headers })
+        return this.http.post(this.url + "hack", obj, { headers: this.headers })
+            .map(this.extractData)
+            .catch(this.handler.handleError);
+    };
+    GeoService.prototype.getLimit = function () {
+        this.addAuthHeader();
+        return this.http.get(this.url + "cashlimit", { headers: this.headers })
+            .map(this.extractData)
+            .catch(this.handler.handleError);
+    };
+    GeoService.prototype.getRoute = function (from, to, via, mode) {
+        if (via === void 0) { via = null; }
+        if (mode === void 0) { mode = null; }
+        this.addAuthHeader();
+        var body = {};
+        body.from = from;
+        body.to = to;
+        body.via = via;
+        body.mode = mode;
+        return this.http.post(this.url + "route", body, { headers: this.headers })
             .map(this.extractData)
             .catch(this.handler.handleError);
     };
@@ -197,20 +174,143 @@ var GeoService = (function () {
     return GeoService;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/geo.service.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/geo.service.js.map
 
 /***/ }),
 
-/***/ 195:
+/***/ 134:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__error_errObj__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__error_errObj__ = __webpack_require__(196);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MapService = (function () {
+    function MapService() {
+        this.maps = [];
+        this.pois = [];
+        this.layers = [];
+    }
+    MapService.prototype.initMap = function (mapid) {
+        this.maps[mapid] = new L.map(mapid, {
+            zoomControl: false,
+            zoom: 12,
+            minZoom: 4,
+            maxZoom: 19
+        });
+        L.tileLayer("http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png").addTo(this.maps[mapid]);
+        return this.maps[mapid];
+    };
+    MapService.prototype.refreshPoi = function (ar) {
+        if (ar && ar.length > 0) {
+            this.pois = [];
+            for (var i = 0; i < ar.length; i++) {
+                this.pois.push(ar[i]);
+            }
+        }
+    };
+    MapService.prototype.drawLine = function (mapID, layerID, dots, color, weight, smooth, opacity) {
+        if (color === void 0) { color = 'blue'; }
+        if (weight === void 0) { weight = 4; }
+        if (smooth === void 0) { smooth = 0; }
+        if (opacity === void 0) { opacity = 0.5; }
+        if (!this.maps[mapID]) {
+            throw new __WEBPACK_IMPORTED_MODULE_1__error_errObj__["a" /* ErrObj */]("Map " + mapID + " is not initialized");
+        }
+        var line = L.polyline(dots, { color: color, weight: weight, smoothFactor: smooth, opacity: opacity });
+        this.addObjtoLayer(mapID, layerID, line);
+        return line;
+    };
+    MapService.prototype.addObjtoLayer = function (mapID, layerID, obj) {
+        if (!this.layers[layerID]) {
+            this.layers[layerID] = new L.LayerGroup([obj]);
+            this.layers[layerID].addTo(this.maps[mapID]);
+        }
+        else {
+            this.layers[layerID].addLayer(obj);
+        }
+    };
+    MapService.prototype.clearLayer = function (layerID) {
+        if (this.layers[layerID]) {
+            this.layers[layerID].clearLayers();
+        }
+    };
+    MapService.prototype.decodePolyline = function (str, precision) {
+        if (precision === void 0) { precision = null; }
+        var index = 0, lat = 0, lng = 0, coordinates = [], shift = 0, result = 0, byte = null, latitude_change, longitude_change, factor = Math.pow(10, precision || 5);
+        // Coordinates have variable length when encoded, so just keep
+        // track of whether we've hit the end of the string. In each
+        // loop iteration, a single coordinate is decoded.
+        while (index < str.length) {
+            // Reset shift, result, and byte
+            byte = null;
+            shift = 0;
+            result = 0;
+            do {
+                byte = str.charCodeAt(index++) - 63;
+                result |= (byte & 0x1f) << shift;
+                shift += 5;
+            } while (byte >= 0x20);
+            latitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
+            shift = result = 0;
+            do {
+                byte = str.charCodeAt(index++) - 63;
+                result |= (byte & 0x1f) << shift;
+                shift += 5;
+            } while (byte >= 0x20);
+            longitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
+            lat += latitude_change;
+            lng += longitude_change;
+            coordinates.push([lat / factor, lng / factor]);
+        }
+        return coordinates;
+    };
+    MapService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
+        __metadata('design:paramtypes', [])
+    ], MapService);
+    return MapService;
+}());
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/map.service.js.map
+
+/***/ }),
+
+/***/ 196:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrObj; });
+var ErrObj = (function () {
+    function ErrObj(msg) {
+        this.msg = msg;
+    }
+    return ErrObj;
+}());
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/errObj.js.map
+
+/***/ }),
+
+/***/ 197:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__error_errObj__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HandlerService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -250,9 +350,8 @@ var HandlerService = (function () {
         else {
             errMsg = error.message ? error.message : error.toString();
         }
-        var errObj = new __WEBPACK_IMPORTED_MODULE_2__error_errObj__["a" /* ErrObj */]();
+        var errObj = new __WEBPACK_IMPORTED_MODULE_2__error_errObj__["a" /* ErrObj */](errMsg);
         errObj.code = error.status;
-        errObj.msg = errMsg;
         return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].throw(errObj);
     };
     HandlerService = __decorate([
@@ -261,67 +360,18 @@ var HandlerService = (function () {
     ], HandlerService);
     return HandlerService;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/handler.service.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/handler.service.js.map
 
 /***/ }),
 
-/***/ 196:
+/***/ 313:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var MapService = (function () {
-    function MapService() {
-        this.maps = [];
-        this.pois = [];
-    }
-    MapService.prototype.initMap = function (mapid) {
-        this.maps[mapid] = new L.map(mapid, {
-            zoomControl: false,
-            zoom: 12,
-            minZoom: 4,
-            maxZoom: 19
-        });
-        L.tileLayer("http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png").addTo(this.maps[mapid]);
-        return this.maps[mapid];
-    };
-    MapService.prototype.refreshPoi = function (ar) {
-        if (ar && ar.length > 0) {
-            this.pois = [];
-            for (var i = 0; i < ar.length; i++) {
-                this.pois.push(ar[i]);
-            }
-        }
-    };
-    MapService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
-        __metadata('design:paramtypes', [])
-    ], MapService);
-    return MapService;
-}());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/map.service.js.map
-
-/***/ }),
-
-/***/ 309:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__person__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__person__ = __webpack_require__(473);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -371,40 +421,26 @@ var LoginComponent = (function () {
         this.setMessage();
     };
     LoginComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Component */])({
             selector: 'login-form',
-            template: __webpack_require__(534)
+            template: __webpack_require__(544)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _b) || Object])
     ], LoginComponent);
     return LoginComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/login.component.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/login.component.js.map
 
 /***/ }),
 
-/***/ 310:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrObj; });
-var ErrObj = (function () {
-    function ErrObj() {
-    }
-    return ErrObj;
-}());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/errObj.js.map
-
-/***/ }),
-
-/***/ 311:
+/***/ 314:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__error_service__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__errObj__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__error_service__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__errObj__ = __webpack_require__(196);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrorComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -425,34 +461,33 @@ var ErrorComponent = (function () {
     ErrorComponent.prototype.ngOnInit = function () {
         this.errObj = this.svc.getError();
         if (!this.errObj) {
-            this.errObj = new __WEBPACK_IMPORTED_MODULE_2__errObj__["a" /* ErrObj */]();
-            this.errObj.msg = "Everything is ok. False alarm";
+            this.errObj = new __WEBPACK_IMPORTED_MODULE_2__errObj__["a" /* ErrObj */]("Everything is ok. False alarm");
         }
     };
     ErrorComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Component */])({
             selector: 'app-error',
-            template: __webpack_require__(535),
-            styles: [__webpack_require__(530)]
+            template: __webpack_require__(545),
+            styles: [__webpack_require__(539)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__error_service__["a" /* ErrorService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__error_service__["a" /* ErrorService */]) === 'function' && _a) || Object])
     ], ErrorComponent);
     return ErrorComponent;
     var _a;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/error.component.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/error.component.js.map
 
 /***/ }),
 
-/***/ 312:
+/***/ 315:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_map_service__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__geo_service__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__error_error_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_map_service__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__geo_service__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__error_error_service__ = __webpack_require__(85);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -490,7 +525,7 @@ var MapComponent = (function () {
         var from = ar[0].split(",");
         this.map = this.maps.initMap("map");
         this.map.panTo(new L.LatLng(Number(from[1]), Number(from[0])));
-        this.geo.getRoute(this.search).subscribe(function (response) {
+        this.geo.getRoute(from[1], from[0]).subscribe(function (response) {
             _this.results = response;
             _this.dist = _this.results.dist;
             var lats = _this.results.lats;
@@ -521,31 +556,31 @@ var MapComponent = (function () {
         this.sub.unsubscribe();
     };
     MapComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Component */])({
             selector: 'app-map',
-            template: __webpack_require__(536),
-            styles: [__webpack_require__(531)]
+            template: __webpack_require__(546),
+            styles: [__webpack_require__(540)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__geo_service__["a" /* GeoService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__geo_service__["a" /* GeoService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__map_map_service__["a" /* MapService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__map_map_service__["a" /* MapService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__error_error_service__["a" /* ErrorService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__error_error_service__["a" /* ErrorService */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _e) || Object])
     ], MapComponent);
     return MapComponent;
     var _a, _b, _c, _d, _e;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/map.component.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/map.component.js.map
 
 /***/ }),
 
-/***/ 313:
+/***/ 316:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__geo_service__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__map_map_service__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__labels__ = __webpack_require__(470);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__searchModel__ = __webpack_require__(471);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__error_error_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__geo_service__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__map_map_service__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__labels__ = __webpack_require__(475);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__searchModel__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__error_error_service__ = __webpack_require__(85);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -571,6 +606,10 @@ var SearchComponent = (function () {
         this.router = router;
         this.model = new __WEBPACK_IMPORTED_MODULE_5__searchModel__["a" /* SearchModel */]();
         this.labels = new __WEBPACK_IMPORTED_MODULE_4__labels__["a" /* Label */]();
+        this.dist = 0;
+        this.mapID = "smap";
+        this.roadLayer = "roads-new";
+        this.nosecrets = true;
     }
     SearchComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -595,14 +634,15 @@ var SearchComponent = (function () {
                 else {
                     console.log("Geolocation not supported");
                 }
+                _this.map.panTo(new L.LatLng(lat, lng));
             }, function (err) {
                 console.log("Geolocation not supported", err);
             });
         }
         else {
             console.log("Geolocation not supported");
+            this.map.panTo(new L.LatLng(lat, lng));
         }
-        this.map.panTo(new L.LatLng(lat, lng));
     };
     SearchComponent.prototype.searchFrom = function (event) {
         if (event.keyCode == 13) {
@@ -622,29 +662,33 @@ var SearchComponent = (function () {
     };
     SearchComponent.prototype.runsearchFrom = function () {
         var _this = this;
-        this.geo.lookup(this.model.from)
-            .subscribe(function (pois) {
-            _this.frompoints = pois;
-            if (pois && pois.length == 1) {
-                _this.confirmFrom(pois[0]);
-            }
-        }, function (error) {
-            _this.error = error;
-            _this.errSvc.recordError(_this.error, _this.router);
-        });
+        if (this.model.from) {
+            this.geo.lookup(this.model.from)
+                .subscribe(function (pois) {
+                _this.frompoints = pois;
+                if (pois && pois.length == 1) {
+                    _this.confirmFrom(pois[0]);
+                }
+            }, function (error) {
+                _this.error = error;
+                _this.errSvc.recordError(_this.error, _this.router);
+            });
+        }
     };
     SearchComponent.prototype.runsearchTo = function () {
         var _this = this;
-        this.geo.lookup(this.model.to)
-            .subscribe(function (pois) {
-            _this.topoints = pois;
-            if (pois && pois.length == 1) {
-                _this.confirmTo(pois[0]);
-            }
-        }, function (error) {
-            _this.error = error;
-            _this.errSvc.recordError(_this.error, _this.router);
-        });
+        if (this.model.to) {
+            this.geo.lookup(this.model.to)
+                .subscribe(function (pois) {
+                _this.topoints = pois;
+                if (pois && pois.length == 1) {
+                    _this.confirmTo(pois[0]);
+                }
+            }, function (error) {
+                _this.error = error;
+                _this.errSvc.recordError(_this.error, _this.router);
+            });
+        }
     };
     SearchComponent.prototype.confirmFrom = function (poi) {
         if (poi && poi.lat && poi.lng) {
@@ -683,26 +727,138 @@ var SearchComponent = (function () {
         }
     };
     SearchComponent.prototype.onSubmit = function () {
-        this.maps.refreshPoi([this.confirmedFrom, this.confirmedTo]);
-        var searchString = this.confirmedFrom.lng + "," + this.confirmedFrom.lat + ";" + this.confirmedTo.lng + "," + this.confirmedTo.lat;
-        this.router.navigate(['/map', searchString]);
+        if (this.confirmedFrom && this.confirmedFrom.lat && this.confirmedFrom.lng && this.confirmedTo && this.confirmedTo.lng && this.confirmedTo.lat) {
+            this.buildRoute(this.confirmedFrom, this.confirmedTo);
+        }
+    };
+    SearchComponent.prototype.buildRoute = function (fromPoi, toPoi) {
+        var _this = this;
+        try {
+            var from = { latlng: [fromPoi.lat, fromPoi.lng] };
+            var to = { latlng: [toPoi.lat, toPoi.lng] };
+            this.geo.getRoute(from, to).subscribe(function (response) {
+                var routes = response;
+                if (routes.length > 0) {
+                    var preferred = routes[0];
+                    _this.dist += preferred.dist;
+                    var turns = preferred.turns;
+                    var dots = [];
+                    for (var i = 0; i < turns.length; i++) {
+                        var turn = turns[i];
+                        if (turn.lat && turn.lng) {
+                            dots.push(L.latLng(turn.lat, turn.lng));
+                        }
+                        else if (turn.line) {
+                            var arr = _this.maps.decodePolyline(turn.line);
+                            for (var ii = 0; ii < arr.length; ii++) {
+                                dots.push(L.latLng(arr[ii][0], arr[ii][1]));
+                            }
+                        }
+                    }
+                    _this.maps.drawLine(_this.mapID, _this.roadLayer, dots);
+                }
+            }, function (error) {
+                console.log(error);
+                _this.errSvc.recordError(error, _this.router);
+            });
+        }
+        catch (e) {
+            console.log("Issues with the routes" + e);
+        }
+    };
+    SearchComponent.prototype.hackIt = function () {
+        var _this = this;
+        this.geo.hack(this.hack)
+            .subscribe(function (data) {
+            _this.hackAnswer = data;
+        }, function (error) {
+            _this.error = error;
+            console.log(_this.error);
+            if (error.msg) {
+                _this.hackAnswer = error.msg;
+            }
+            else {
+                _this.hackAnswer = error;
+            }
+        });
+    };
+    SearchComponent.prototype.toggleSecrets = function () {
+        this.nosecrets = !this.nosecrets;
     };
     SearchComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Component */])({
             selector: 'geo-search',
-            template: __webpack_require__(537),
-            styles: [__webpack_require__(532)]
+            template: __webpack_require__(547),
+            styles: [__webpack_require__(541)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__geo_service__["a" /* GeoService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__geo_service__["a" /* GeoService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__map_map_service__["a" /* MapService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__map_map_service__["a" /* MapService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__error_error_service__["a" /* ErrorService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__error_error_service__["a" /* ErrorService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], SearchComponent);
     return SearchComponent;
     var _a, _b, _c, _d;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/search.component.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/search.component.js.map
 
 /***/ }),
 
-/***/ 344:
+/***/ 317:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__geo_service__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__map_map_service__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__error_error_service__ = __webpack_require__(85);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SecretsComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var SecretsComponent = (function () {
+    function SecretsComponent(geo, maps, errSvc, router) {
+        this.geo = geo;
+        this.maps = maps;
+        this.errSvc = errSvc;
+        this.router = router;
+        this.cashLimit = 0;
+    }
+    SecretsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.geo.getLimit()
+            .subscribe(function (data) {
+            _this.cashLimit = data.limit;
+            console.log("this.cashLimit", _this.cashLimit);
+        }, function (error) {
+            _this.error = error;
+            _this.errSvc.recordError(_this.error, _this.router);
+        });
+    };
+    SecretsComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Component */])({
+            selector: 'app-secrets',
+            template: __webpack_require__(548),
+            styles: [__webpack_require__(542)]
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__geo_service__["a" /* GeoService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__geo_service__["a" /* GeoService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__map_map_service__["a" /* MapService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__map_map_service__["a" /* MapService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__error_error_service__["a" /* ErrorService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__error_error_service__["a" /* ErrorService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
+    ], SecretsComponent);
+    return SecretsComponent;
+    var _a, _b, _c, _d;
+}());
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/secrets.component.js.map
+
+/***/ }),
+
+/***/ 346:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -711,20 +867,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 344;
+webpackEmptyContext.id = 346;
 
 
 /***/ }),
 
-/***/ 345:
+/***/ 347:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(433);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(436);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(472);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(470);
 
 
 
@@ -733,19 +889,20 @@ if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/main.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/main.js.map
 
 /***/ }),
 
-/***/ 463:
+/***/ 468:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_map_component__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__error_error_component__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__search_search_component__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_map_component__ = __webpack_require__(315);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__error_error_component__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__search_search_component__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__secrets_secrets_component__ = __webpack_require__(317);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -761,6 +918,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var routes = [
     {
         path: '',
@@ -770,6 +928,11 @@ var routes = [
     {
         path: 'search',
         component: __WEBPACK_IMPORTED_MODULE_4__search_search_component__["a" /* SearchComponent */],
+        pathMatch: 'full'
+    },
+    {
+        path: 'secrets',
+        component: __WEBPACK_IMPORTED_MODULE_5__secrets_secrets_component__["a" /* SecretsComponent */],
         pathMatch: 'full'
     },
     {
@@ -795,11 +958,11 @@ var AppRoutingModule = (function () {
     ], AppRoutingModule);
     return AppRoutingModule;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/app-routing.module.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/app-routing.module.js.map
 
 /***/ }),
 
-/***/ 464:
+/***/ 469:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -820,39 +983,41 @@ var AppComponent = (function () {
         this.title = 'Maps';
     }
     AppComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Component */])({
             selector: 'app-root',
-            template: __webpack_require__(533),
-            styles: [__webpack_require__(529)]
+            template: __webpack_require__(543),
+            styles: [__webpack_require__(538)]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/app.component.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/app.component.js.map
 
 /***/ }),
 
-/***/ 465:
+/***/ 470:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(424);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing_module__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__handler_service__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(464);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__map_map_component__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__map_map_service__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__geo_service__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__distance_pipe__ = __webpack_require__(469);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__auth_auth_module__ = __webpack_require__(466);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__auth_login_component__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__search_search_component__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__error_error_component__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__error_error_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(427);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing_module__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular_font_awesome_angular_font_awesome__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__handler_service__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__map_map_component__ = __webpack_require__(315);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__map_map_service__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__geo_service__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__distance_pipe__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__auth_auth_module__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__auth_login_component__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__search_search_component__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__error_error_component__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__error_error_service__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__secrets_secrets_component__ = __webpack_require__(317);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -879,47 +1044,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__map_map_component__["a" /* MapComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__distance_pipe__["a" /* DistancePipe */],
-                __WEBPACK_IMPORTED_MODULE_12__auth_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__search_search_component__["a" /* SearchComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__error_error_component__["a" /* ErrorComponent */]
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__map_map_component__["a" /* MapComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__distance_pipe__["a" /* DistancePipe */],
+                __WEBPACK_IMPORTED_MODULE_13__auth_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__search_search_component__["a" /* SearchComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__error_error_component__["a" /* ErrorComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__secrets_secrets_component__["a" /* SecretsComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_5_angular_font_awesome_angular_font_awesome__["a" /* AngularFontAwesomeModule */],
                 __WEBPACK_IMPORTED_MODULE_4__app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_11__auth_auth_module__["a" /* AuthRoutingModule */]
+                __WEBPACK_IMPORTED_MODULE_12__auth_auth_module__["a" /* AuthRoutingModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_9__geo_service__["a" /* GeoService */], __WEBPACK_IMPORTED_MODULE_8__map_map_service__["a" /* MapService */], __WEBPACK_IMPORTED_MODULE_5__handler_service__["a" /* HandlerService */], __WEBPACK_IMPORTED_MODULE_15__error_error_service__["a" /* ErrorService */]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]],
-            exports: [__WEBPACK_IMPORTED_MODULE_10__distance_pipe__["a" /* DistancePipe */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_10__geo_service__["a" /* GeoService */], __WEBPACK_IMPORTED_MODULE_9__map_map_service__["a" /* MapService */], __WEBPACK_IMPORTED_MODULE_6__handler_service__["a" /* HandlerService */], __WEBPACK_IMPORTED_MODULE_16__error_error_service__["a" /* ErrorService */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_11__distance_pipe__["a" /* DistancePipe */]]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/app.module.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/app.module.js.map
 
 /***/ }),
 
-/***/ 466:
+/***/ 471:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authguard_service__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__auth_service__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_component__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authguard_service__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__auth_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_component__ = __webpack_require__(313);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -958,17 +1127,17 @@ var AuthRoutingModule = (function () {
     ], AuthRoutingModule);
     return AuthRoutingModule;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/auth.module.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/auth.module.js.map
 
 /***/ }),
 
-/***/ 467:
+/***/ 472:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__(132);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1008,11 +1177,11 @@ var AuthGuard = (function () {
     return AuthGuard;
     var _a, _b;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/authguard.service.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/authguard.service.js.map
 
 /***/ }),
 
-/***/ 468:
+/***/ 473:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1022,11 +1191,11 @@ var Person = (function () {
     }
     return Person;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/person.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/person.js.map
 
 /***/ }),
 
-/***/ 469:
+/***/ 474:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1064,11 +1233,11 @@ var DistancePipe = (function () {
     ], DistancePipe);
     return DistancePipe;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/distance.pipe.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/distance.pipe.js.map
 
 /***/ }),
 
-/***/ 470:
+/***/ 475:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1078,11 +1247,11 @@ var Label = (function () {
     }
     return Label;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/labels.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/labels.js.map
 
 /***/ }),
 
-/***/ 471:
+/***/ 476:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1092,11 +1261,11 @@ var SearchModel = (function () {
     }
     return SearchModel;
 }());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/searchModel.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/searchModel.js.map
 
 /***/ }),
 
-/***/ 472:
+/***/ 477:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1108,80 +1277,137 @@ var SearchModel = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/trip/src/environment.js.map
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/environment.js.map
 
 /***/ }),
 
-/***/ 529:
+/***/ 538:
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ 530:
+/***/ 539:
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ 531:
+/***/ 540:
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ 532:
+/***/ 541:
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ 533:
+/***/ 542:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"navbar navbar-inverse\">\n\t<div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a href=\"https://apprenda.com\" class=\"navbar-left\"><img height=\"50px\" width=\"50px\" src=\"assets/img/apprenda-logo.png\" alt=\"Apprenda Logo\"></a>\n          <a class=\"navbar-brand\" routerLink=\"/search\">Apprenda Kubernetes Workshop</a>\n     </div>\n     <div id=\"navbar\" class=\"collapse navbar-collapse\">\n          <ul class=\"nav navbar-nav\">\n            <!-- <li class=\"active\"><a router-link=\"/\">Home</a></li> -->\n          </ul>\n     </div>\n</div>\n<router-outlet></router-outlet>\n"
+module.exports = ""
 
 /***/ }),
 
-/***/ 534:
+/***/ 543:
+/***/ (function(module, exports) {
+
+module.exports = "<router-outlet></router-outlet>\n"
+
+/***/ }),
+
+/***/ 544:
 /***/ (function(module, exports) {
 
 module.exports = "    <div class=\"container page-section middle-box text-center loginscreen\">\n        <form (ngSubmit)=\"login()\" #loginForm=\"ngForm\">\n            <div class=\"form-group\">\n                <input type=\"email\" name=\"username\" [(ngModel)]=\"person.email\" class=\"form-control\" placeholder=\"Your Email\" required=\"\">\n            </div>\n            <div class=\"form-group\">\n                <input type=\"password\" name=\"password\" [(ngModel)]=\"person.pass\" class=\"form-control\" placeholder=\"Password\" required=\"\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-primary block full-width m-b\">Sign In</button>\n            \n            <a href=\"#\"><small>Forgot password?</small></a>\n            <p class=\"text-muted text-center\"><small>Do not have an account?</small></p>\n            <a class=\"btn btn-sm btn-white btn-block\" ng-click='navTo(\"register\")'>Create an account</a>\n        </form>\n        <p class=\"m-t\"> <small>Mooshpoochie by Yuliart &copy; 2015-2017</small> </p>\n    </div>"
 
 /***/ }),
 
-/***/ 535:
+/***/ 545:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-4 col-lg-offset-1\">\n\t\t\t<h2>We have issues</h2>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-10 col-lg-offset-1\">\n\t\t\t<p>{{errObj.msg}}</p>\n\t\t\t<p>response code: {{errObj.code}}</p>\n\t\t</div>\n\t</div>\n</div>\n"
 
 /***/ }),
 
-/***/ 536:
+/***/ 546:
 /***/ (function(module, exports) {
 
 module.exports = "\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-9 col-offset-lg-1\">\n\t\t\t<h2>Route on Kubernetes</h2>\n\t\t\t<div style=\"width:100%   ;height:300px\" id=\"map\"></div>\n\t\t\t\t<p>The distance is {{ dist | distance }}</p>\n\t\t</div>\n\t</div>\n\t<div class=\"row\" *ngFor=\"let wp of waypoints;\">\n\t\t<div class=\"col-lg-2 col-offset-lg-1\">\n\t\t\t<h3>{{wp.name}}</h3>\n\t\t\t<p>{{wp.address}}</p>\n\t\t</div>\n\t</div>\n</div>\n\n\n\n\n\n\n \n"
 
 /***/ }),
 
-/***/ 537:
+/***/ 547:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\t<div class=\"row\">\n\t  <div class=\"col-lg-3 col-lg-offset-1\" style=\"margin:auto;height:50px\">\n\t  \t<p>{{labels.title}}</p>\n\t    <a href=\"https://kubernetes.io\"><img src=\"assets/img/kubernetes-logo.png\" height=\"50px\" width=\"50px\" alt=\"Kubernetes Logo\"></a>\n\t  </div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-4 col-lg-offset-1\">\n\t\t\t<form (keydown)=\"searchFrom($event)\">\n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<label>From</label>\n\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t<input type=\"text\" placeholder=\"{{labels.placeholder}}\"  class=\"form-control\" id=\"from\"\n\t         [(ngModel)]=\"model.from\" name=\"from\">\n\t         \t<span class=\"input-group-btn\">\n        \t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"clickFrom()\">...</button>\n      \t\t\t\t</span>\n      \t\t\t </div>\n\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t<div *ngIf=\"frompoints && frompoints.length > 1\" style=\"color:#080;margin:10px\">Click on the desired venue to put it on the map</div>\n\t\t\t\t<div style=\"cursor:pointer\" *ngFor=\"let poi of frompoints;\">\n\t\t\t\t\t  <p (click)=\"confirmFrom(poi)\">{{poi.address}}</p>\n\t\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-lg-4 col-lg-offset-1\">\n\t\t\t<form (keydown)=\"searchTo($event)\">\n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<label>To</label>\n\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t<input type=\"text\" placeholder=\"{{labels.placeholder}}\"  class=\"form-control\" id=\"to\"\n\t         [(ngModel)]=\"model.to\" name=\"to\">\n\t         \t\t<span class=\"input-group-btn\">\n        \t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"clickTo()\">...</button>\n      \t\t\t\t</span>\n      \t\t\t </div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"topoints && topoints.length > 1\" style=\"color:#080;margin:10px\">Click on the desired venue to put it on the map</div>\n\t\t\t\t<div style=\"cursor:pointer\" *ngFor=\"let poi of topoints;\">\n\t\t\t\t\t  <p (click)=\"confirmTo(poi)\">{{poi.address}}</p>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-1 col-lg-offset-1\">\n\t\t\t<button (click)=\"onSubmit()\">Route...\t</button>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-9 col-lg-offset-1\">\n\t\t\t<div style=\"margin-top:10px;width:100%;height:300px\" id=\"smap\"></div>\n\t\t</div>\n\t</div>\n</div>\n"
+module.exports = "<div class=\"navbar navbar-inverse\">\n\t<div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a href=\"https://apprenda.com\" class=\"navbar-left\"><img height=\"50px\" width=\"50px\" src=\"assets/img/apprenda-logo.png\" alt=\"Apprenda Logo\"></a>\n          <a class=\"navbar-brand\" routerLink=\"/search\">Public Banking. Branch Locator</a>\n     </div>\n     <div id=\"navbar\" class=\"collapse navbar-collapse\">\n          <ul class=\"nav navbar-nav\">\n            <!-- <li class=\"active\"><a router-link=\"/\">Home</a></li> -->\n          </ul>\n     </div>\n</div>\n<div class=\"container\">\n\t<div class=\"row\">\n\t  <div class=\"col-lg-3 col-lg-offset-1\" style=\"margin:auto;height:50px\">\n\t  \t<p>{{labels.title}}</p>\n\t    <a href=\"https://kubernetes.io\"><img src=\"assets/img/kubernetes-logo.png\" height=\"50px\" width=\"50px\" alt=\"Kubernetes Logo\"></a>\n\t  </div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-4 col-lg-offset-1\">\n\t\t\t<form (keydown)=\"searchFrom($event)\">\n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<label>From</label>\n\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t<input type=\"text\" placeholder=\"{{labels.placeholder}}\"  class=\"form-control\" id=\"from\"\n\t         [(ngModel)]=\"model.from\" name=\"from\">\n\t         \t<span class=\"input-group-btn\">\n        \t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"clickFrom()\">...</button>\n      \t\t\t\t</span>\n      \t\t\t </div>\n\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t<div *ngIf=\"frompoints && frompoints.length > 1\" style=\"color:#080;margin:10px\">Click on the desired venue to put it on the map</div>\n\t\t\t\t<div style=\"cursor:pointer\" *ngFor=\"let poi of frompoints;\">\n\t\t\t\t\t  <p (click)=\"confirmFrom(poi)\">{{poi.address}}</p>\n\t\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-lg-4 col-lg-offset-1\">\n\t\t\t<form (keydown)=\"searchTo($event)\">\n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<label>To</label>\n\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t<input type=\"text\" placeholder=\"{{labels.placeholder}}\"  class=\"form-control\" id=\"to\"\n\t         [(ngModel)]=\"model.to\" name=\"to\">\n\t         \t\t<span class=\"input-group-btn\">\n        \t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"clickTo()\">...</button>\n      \t\t\t\t</span>\n      \t\t\t </div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"topoints && topoints.length > 1\" style=\"color:#080;margin:10px\">Click on the desired venue to put it on the map</div>\n\t\t\t\t<div style=\"cursor:pointer\" *ngFor=\"let poi of topoints;\">\n\t\t\t\t\t  <p (click)=\"confirmTo(poi)\">{{poi.address}}</p>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-1 col-lg-offset-1\">\n\t\t\t<button (click)=\"onSubmit()\">Route...\t</button>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-9 col-lg-offset-1\">\n\t\t\t<div style=\"margin-top:10px;width:100%;height:300px\" id=\"smap\"></div>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-4 col-lg-offset-2 form-group\">\n\t\t\t<div class=\"panel\" style=\"margin-top:30px\">\n\t\t\t\t<div class=\"panel-header\">\n\t\t\t\t\t<button (click)=\"toggleSecrets()\"><i class=\"fa fa-lock\"></i></button>\n\t\t\t\t</div>\n\t\t\t\t<div [hidden]=\"nosecrets\" class=\"panel-body\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label>Get Secure Data</label>\n\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t<input type=\"text\" placeholder=\"http://url\"  class=\"form-control\" id=\"hack\"\n\t\t\t         [(ngModel)]=\"hack\" name=\"to\">\n\t\t\t         \t\t<span class=\"input-group-btn\">\n\t\t\t    \t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"hackIt()\">Submit</button>\n\t\t\t  \t\t\t\t</span>\n\t\t\t  \t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>{{hackAnswer}}</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n"
 
 /***/ }),
 
-/***/ 571:
+/***/ 548:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"navbar navbar-inverse\">\n\t<div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a href=\"https://apprenda.com\" class=\"navbar-left\"><img height=\"50px\" width=\"50px\" src=\"assets/img/apprenda-logo.png\" alt=\"Apprenda Logo\"></a>\n          <a class=\"navbar-brand\" routerLink=\"/search\">Secure Banking</a>\n     </div>\n     <div id=\"navbar\" class=\"collapse navbar-collapse\">\n          <ul class=\"nav navbar-nav\">\n            <!-- <li class=\"active\"><a router-link=\"/\">Home</a></li> -->\n          </ul>\n     </div>\n</div>\n<div class=\"container\">\n\t<div class=\"row\">\n\t  <div class=\"col-lg-3 col-lg-offset-1\" style=\"margin:auto;height:50px\">\n\t    <a href=\"https://kubernetes.io\"><img src=\"assets/img/kubernetes-logo.png\" height=\"50px\" width=\"50px\" alt=\"Kubernetes Logo\"></a>\n\t  </div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-2 col-lg-offset-1\">\n\t\t\t<h3>Acme Branch</h3>\n\t\t\t<img src=\"assets/img/branch.jpg\" height=\"150px\" width=\"150px\" alt=\"Acme Bank\">\n\t  \t</div>\n\t\t<div class=\"col-lg-4\">\n\t\t\t<p style=\"margin-top:50px\">Your Daily Withdrawal Limit:</p>\n\t\t\t<h3>{{cashLimit | currency}}</h3>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"form-group\">\n\t\t\t<input class=\"form-control\" [(ngModel)]=\"person.pass\">\n\t\t</div>\n\t</div>\n</div>\n"
+
+/***/ }),
+
+/***/ 585:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(345);
+module.exports = __webpack_require__(347);
 
+
+/***/ }),
+
+/***/ 85:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrorService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ErrorService = (function () {
+    function ErrorService() {
+    }
+    ErrorService.prototype.getError = function () {
+        return this.errObj;
+    };
+    ErrorService.prototype.recordError = function (err, router) {
+        this.errObj = err;
+        if (router) {
+            if (this.errObj.code == 401) {
+                router.navigate(['/login']);
+            }
+            else {
+                router.navigate(['/oops']);
+            }
+        }
+    };
+    ErrorService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
+        __metadata('design:paramtypes', [])
+    ], ErrorService);
+    return ErrorService;
+}());
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/trip/src/error.service.js.map
 
 /***/ })
 
-},[571]);
+},[585]);
 //# sourceMappingURL=main.bundle.map

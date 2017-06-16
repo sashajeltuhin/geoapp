@@ -34,7 +34,7 @@ private sub: any;
 
     this.map = this.maps.initMap("map");
     this.map.panTo(new L.LatLng(Number(from[1]), Number(from[0])));
-	  this.geo.getRoute(this.search).subscribe(response => {
+	  this.geo.getRoute(from[1], from[0]).subscribe(response => {
 
 		this.results = response;
 		this.dist = this.results.dist;

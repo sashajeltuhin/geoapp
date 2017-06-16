@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 
 import { HandlerService } from './handler.service';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { LoginComponent }          from './auth/login.component';
 import { SearchComponent } from './search/search.component';
 import { ErrorComponent } from './error/error.component';
 import { ErrorService } from './error/error.service';
+import { SecretsComponent } from './secrets/secrets.component';
 
 
 @NgModule({
@@ -24,12 +26,14 @@ import { ErrorService } from './error/error.service';
     DistancePipe,
     LoginComponent,
     SearchComponent,
-    ErrorComponent
+    ErrorComponent,
+    SecretsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    AngularFontAwesomeModule,
     AppRoutingModule,
     AuthRoutingModule
   ],

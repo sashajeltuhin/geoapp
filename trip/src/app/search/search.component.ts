@@ -23,6 +23,12 @@ export class SearchComponent implements OnInit {
   private topoints:Poi[];
   private confirmedFrom:Poi;
   private confirmedTo:Poi;
+  private dist = 0;
+  private mapID = "smap";
+  private roadLayer = "roads-new";
+  private hack;
+  private hackAnswer;
+  private nosecrets = true;
 
   constructor(private geo:GeoService, private maps:MapService, private errSvc: ErrorService, private router: Router) { 
   }
@@ -42,7 +48,7 @@ export class SearchComponent implements OnInit {
   var lat = 33.983312;
   var lng = -84.343748;
   if (navigator && navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(function(pos){
+      navigator.geolocation.getCurrentPosition(pos => {
         if (pos){
           lat = pos.coords.latitude;
           lng = pos.coords.longitude;
@@ -51,6 +57,7 @@ export class SearchComponent implements OnInit {
         else{
          console.log("Geolocation not supported");
         }
+        this.map.panTo(new L.LatLng(lat, lng));
       }, function(err){
        console.log("Geolocation not supported", err);
       });
@@ -58,8 +65,8 @@ export class SearchComponent implements OnInit {
   }
   else{
     console.log("Geolocation not supported");
+    this.map.panTo(new L.LatLng(lat, lng));
   }
-  this.map.panTo(new L.LatLng(lat, lng));
  }
 
   searchFrom(event) {
@@ -83,6 +90,7 @@ export class SearchComponent implements OnInit {
   }
 
   runsearchFrom(){
+    if (this.model.from){
     this.geo.lookup(this.model.from)
                    .subscribe(
                      pois => {this.frompoints = pois
@@ -92,10 +100,12 @@ export class SearchComponent implements OnInit {
                      error =>  {
                      this.error = error;
                       this.errSvc.recordError(this.error, this.router);
-                     });
+            });
+    }
   }
 
   runsearchTo(){
+  if (this.model.to){
     this.geo.lookup(this.model.to)
                    .subscribe(
                      pois => {this.topoints = pois
@@ -106,6 +116,7 @@ export class SearchComponent implements OnInit {
                      this.error = error;
                       this.errSvc.recordError(this.error, this.router);
                      });
+    }
   }
 
   confirmFrom(poi){
@@ -150,9 +161,68 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(){
-    this.maps.refreshPoi([this.confirmedFrom, this.confirmedTo]);
-  	let searchString = this.confirmedFrom.lng + "," + this.confirmedFrom.lat + ";" + this.confirmedTo.lng + "," + this.confirmedTo.lat;
-  	this.router.navigate(['/map', searchString]);
+  if (this.confirmedFrom && this.confirmedFrom.lat && this.confirmedFrom.lng && this.confirmedTo && this.confirmedTo.lng && this.confirmedTo.lat){
+    this.buildRoute(this.confirmedFrom, this.confirmedTo);
+    }
+  }
+
+  buildRoute(fromPoi, toPoi){
+  try{
+      let from:any = {latlng: [fromPoi.lat, fromPoi.lng]};
+      let to:any = {latlng: [toPoi.lat, toPoi.lng]};
+      this.geo.getRoute(from, to).subscribe(response => {
+          var routes = response;
+          if (routes.length > 0){
+            var preferred = routes[0];
+            this.dist += preferred.dist;
+          
+            var turns = preferred.turns;
+            var dots = [];
+            
+            for (var i = 0; i < turns.length; i++){
+              let turn = turns[i];
+              if (turn.lat && turn.lng){
+                dots.push(L.latLng(turn.lat, turn.lng));
+              }
+              else if(turn.line){
+                var arr = this.maps.decodePolyline(turn.line);
+                for (var ii = 0; ii < arr.length; ii++){
+                  dots.push(L.latLng(arr[ii][0], arr[ii][1]));
+                }
+              }
+            }
+            this.maps.drawLine(this.mapID, this.roadLayer, dots);
+          }
+        },  
+          error => {console.log(error);
+          this.errSvc.recordError(error, this.router);
+        });
+    }
+    catch(e){
+      console.log("Issues with the routes" + e);
+    }
+  }
+
+  hackIt(){
+    this.geo.hack(this.hack)
+       .subscribe(
+         data => {
+          this.hackAnswer = data;
+         },
+         error =>  {
+         this.error = error;
+         console.log(this.error);
+         if (error.msg){
+          this.hackAnswer = error.msg;
+         }
+         else{
+          this.hackAnswer = error;
+         }
+         });
+  }
+
+  toggleSecrets(){
+      this.nosecrets = !this.nosecrets;
   }
 
 }

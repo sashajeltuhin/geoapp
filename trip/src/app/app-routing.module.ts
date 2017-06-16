@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { ErrorComponent } from './error/error.component';
 import { SearchComponent } from './search/search.component';
+import { SecretsComponent } from './secrets/secrets.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,11 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'secrets',
+    component: SecretsComponent,
     pathMatch: 'full'
   },
   {

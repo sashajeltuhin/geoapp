@@ -1,5 +1,7 @@
 export class ErrObj {
     code: number;
     msg: string;
-  constructor() {  }
+  constructor(msg: string) { 
+  	this.msg = msg;
+  }
 }

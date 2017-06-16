@@ -25,6 +25,16 @@ exports.getLabels = function(req, res, next){
     res.send(labels);
 }
 
+exports.getLimit = function(req, res, next){
+    try{
+        var limit = process.env['CASH_LIMIT'] || 500;
+        res.send({limit:limit});
+    }
+    catch(e){
+        next(e);
+    }
+}
+
 exports.testmap = function (req, res, next){
     try{
     var search = req.params.search;
@@ -365,4 +375,108 @@ try{
   catch(e){
         next("Unable to do nearby serch. " + e);
   }
+}
+
+
+exports.lookupRoutes = function(req, res, next){
+    var obj = req.body;
+    var from = obj.from;
+    var to = obj.to;
+    var via = obj.via;
+    var mode = obj.mode;
+    getRoutes(from, to, via, mode, function (err, recs) {
+        console.log("getRoutes returned", recs, err);
+        if (err) {
+            next(err);
+        }
+        else {
+            res.send(recs);
+        }
+    });
+    
+}
+
+function prepPlace(obj){
+    var place = obj.place;
+    var latlng = obj.latlng;
+    if (place){
+        return place.replace(/ /g, '+');
+    }
+    else if (latlng){
+        return latlng[0] + "," + latlng[1];
+    }
+    else{
+        throw "Invalid place information for directions";
+    }
+}
+
+
+function getRoutes(from, to, via, mode, callback ){
+    var rq = require('request');
+    var apikey = process.env['GEO_DIR_KEY'];
+    var path = "/maps/api/directions/json?origin=";
+    path = path + prepPlace(from);
+    path = path + "&destination=";
+    path = path + prepPlace(to);
+    if (via){
+        var viastring = "&waypoints=optimize:true";
+        for(var i = 0; i < via.length; i++){
+            viastring = viastring + "|" + prepPlace(via[i]);
+        }
+        if (via.length > 0){
+            path = path + viastring;
+        }
+    }
+    if (mode){
+        path = path + "&mode=" + mode;
+    }
+    path = path + "&key=" + apikey;
+    var retobj = [];
+    rq({
+        method: 'GET',
+        uri: 'https://maps.googleapis.com' + path,
+        strictSSL: false
+    }, function (err, response, body) {
+        if (err == null) {
+            var r = JSON.parse(body);
+            if (r["routes"] && r["status"] == 'OK') {
+                var list = r["routes"];
+                if (list.length > 0) {
+                    for (var i = 0; i < list.length; i++){
+                        var route = {};
+                        route.turns = [];
+                        route.dist = 0;
+                        route.duration = 0;
+                        for (var l = 0; l < list[i]["legs"].length; l++){
+                            var leg = list[i]["legs"][l];
+                            if (leg["distance"]){
+                                route.dist += leg["distance"]["value"];    
+                            }
+                            if (leg["duration"]["value"]){
+                                route.duration += leg["duration"]["value"];
+                            }
+            
+                            for (var s = 0; s < leg["steps"].length; s++){
+                                var step = leg["steps"][s];
+                                route.turns.push({"lat": step["start_location"]["lat"], "lng": step["start_location"]["lng"]});
+                                route.turns.push({"line": step["polyline"]["points"]});
+                                route.turns.push({"lat": step["end_location"]["lat"], "lng": step["end_location"]["lng"]});
+                            }
+                        }
+                        retobj.push(route);
+                    }
+                    callback(null, retobj);
+                }
+                else{
+                    callback("No results ", null);
+                }
+            }
+            else{
+                callback("Unable to look up location. " + r["status"], null);
+            }
+        }
+        else {
+            callback("Unable to look up location. " + err, null);
+        }
+    });
 }

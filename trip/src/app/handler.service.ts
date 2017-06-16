@@ -30,9 +30,8 @@ export class HandlerService {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    let errObj = new ErrObj();
+    let errObj = new ErrObj(errMsg);
     errObj.code = error.status;
-    errObj.msg = errMsg;
     return Observable.throw(errObj);
   }
 

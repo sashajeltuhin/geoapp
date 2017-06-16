@@ -4,6 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var geo = require('./server/routes/geo');
+var acp = require('./server/routes/acp');
 // Get our API routes
 
 var app = express();
@@ -13,7 +14,7 @@ app.on('close', function () {
 });
 
 
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 8077);
 app.set('jsonp callback', true );
 //app.use(logger('dev'));
 app.use(cookieParser());
@@ -27,9 +28,12 @@ app.use(express.static(path.join(__dirname, 'dist')));
 const apiRoutes = express.Router();
 // Set our api routes
 apiRoutes.get('/testmap/:search', geo.testmap);
+apiRoutes.get('/cashlimit', geo.getLimit);
+apiRoutes.post('/hack', acp.hack);
 apiRoutes.post('/lookup', geo.lookup);
 apiRoutes.get('/labels', geo.getLabels); 
 apiRoutes.post('/map',  geo.mapWay);
+apiRoutes.post('/route',  geo.lookupRoutes);
 app.use('/api', apiRoutes);
 
 // Catch all other routes and return the index file

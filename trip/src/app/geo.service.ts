@@ -27,10 +27,30 @@ private headers;
                   .catch(this.handler.handleError);
   }
 
-  getRoute(search):Observable<any>{
+  hack(path):Observable<any>{
+    var obj:any = {};
+    obj.path = path;
     this.addAuthHeader();
-    this.url = this.url.replace("^^search^^", search);
-    return this.http.post(this.url + "map", {"search":search}, {headers: this.headers} )
+    return this.http.post(this.url + "hack", obj, {headers: this.headers})
+                  .map(this.extractData)
+                  .catch(this.handler.handleError);
+  }
+
+  getLimit():Observable<any>{
+    this.addAuthHeader();
+    return this.http.get(this.url + "cashlimit", {headers: this.headers})
+                  .map(this.extractData)
+                  .catch(this.handler.handleError);
+  }
+
+  getRoute(from, to, via=null, mode=null):Observable<any>{
+    this.addAuthHeader();
+    var body:any = {};
+    body.from = from;
+    body.to = to;
+    body.via = via;
+    body.mode = mode;
+    return this.http.post(this.url + "route", body, {headers: this.headers} )
                       .map(this.extractData)
                       .catch(this.handler.handleError);
   }

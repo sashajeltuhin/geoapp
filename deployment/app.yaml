@@ -1,26 +1,30 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: acpgeo
+  name: acpsec
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        api: acpgeo
+        api: acpsec
     spec:
       containers:
-      - name: geoapi
-        image: docker.io/sashaz/acpgeo:v2
+      - name: acpsec
+        image: docker.io/sashaz/acpsec:v1
         env:
         - name: GEO_KEY
-          value: AIzaSyDZszKJ0a72ED1ragcd0s3Eks3QI2wc6-I
+          value: AIzaSyDr3iN4ZiOdk_X3t8Wx1s_Y6rvqxQUnsWI
+        - name: GEO_DIR_KEY
+          value: AIzaSyDp7yLyid5qJOIgQo1d_gt11NBBGCJivFA
         - name: GEO_TITLE
           value: 'Driving on '
         - name: GEO_PLACEHOLDER
           value: 'Enter something... '
+        - name: CASH_LIMIT
+          value: '300'
         ports:
-        - containerPort: 80
+        - containerPort: 8077
         args:
         - node
         - server.js

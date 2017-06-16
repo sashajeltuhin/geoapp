@@ -1,3 +1,20 @@
+<div class="navbar navbar-inverse">
+	<div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="https://apprenda.com" class="navbar-left"><img height="50px" width="50px" src="assets/img/apprenda-logo.png" alt="Apprenda Logo"></a>
+          <a class="navbar-brand" routerLink="/search">Public Banking. Branch Locator</a>
+     </div>
+     <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <!-- <li class="active"><a router-link="/">Home</a></li> -->
+          </ul>
+     </div>
+</div>
 <div class="container">
 	<div class="row">
 	  <div class="col-lg-3 col-lg-offset-1" style="margin:auto;height:50px">
@@ -51,6 +68,28 @@
 	<div class="row">
 		<div class="col-lg-9 col-lg-offset-1">
 			<div style="margin-top:10px;width:100%;height:300px" id="smap"></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-2 form-group">
+			<div class="panel" style="margin-top:30px">
+				<div class="panel-header">
+					<button (click)="toggleSecrets()"><i class="fa fa-lock"></i></button>
+				</div>
+				<div [hidden]="nosecrets" class="panel-body">
+					<div class="form-group">
+						<label>Get Secure Data</label>
+						<div class="input-group">
+							<input type="text" placeholder="http://url"  class="form-control" id="hack"
+			         [(ngModel)]="hack" name="to">
+			         		<span class="input-group-btn">
+			    				<button class="btn btn-secondary" type="button" (click)="hackIt()">Submit</button>
+			  				</span>
+			  			</div>
+					</div>
+					<div>{{hackAnswer}}</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

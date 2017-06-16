@@ -15,8 +15,7 @@ export class ErrorComponent implements OnInit {
   ngOnInit() {
   		this.errObj = this.svc.getError();
       if (!this.errObj){
-        this.errObj = new ErrObj();
-        this.errObj.msg = "Everything is ok. False alarm";
+        this.errObj = new ErrObj("Everything is ok. False alarm");
       }
   }
 
