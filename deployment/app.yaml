@@ -20,7 +20,7 @@ spec:
         - name: GEO_TITLE
           value: 'Driving on '
         - name: GEO_PLACEHOLDER
-          value: 'Enter Branch Name... '
+          value: 'Enter Somthing... '
         - name: CASH_LIMIT
           value: '300'
         ports:
