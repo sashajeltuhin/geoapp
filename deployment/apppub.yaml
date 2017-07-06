@@ -1,13 +1,13 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: acpsec
+  name: acppub
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        api: acpsec
+        api: acppub
     spec:
       containers:
       - name: acpsec

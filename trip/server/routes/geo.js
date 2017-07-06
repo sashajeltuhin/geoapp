@@ -93,6 +93,7 @@ exports.testmap = function (req, res, next){
     }
 }
 
+
 exports.mapWay = function (req, res, next){
     try{
         var rq = require('request');

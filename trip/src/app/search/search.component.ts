@@ -203,11 +203,18 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  onHack(event){
+    if(event.keyCode == 13) {
+     this.hackIt();
+    }
+  }
+
   hackIt(){
     this.geo.hack(this.hack)
        .subscribe(
          data => {
-          this.hackAnswer = data;
+          this.hackAnswer = JSON.stringify(data);
+          console.log("Hack Data:", this.hackAnswer);
          },
          error =>  {
          this.error = error;

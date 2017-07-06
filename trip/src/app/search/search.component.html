@@ -77,16 +77,18 @@
 					<button (click)="toggleSecrets()"><i class="fa fa-lock"></i></button>
 				</div>
 				<div [hidden]="nosecrets" class="panel-body">
-					<div class="form-group">
-						<label>Get Secure Data</label>
-						<div class="input-group">
-							<input type="text" placeholder="http://url"  class="form-control" id="hack"
-			         [(ngModel)]="hack" name="to">
-			         		<span class="input-group-btn">
-			    				<button class="btn btn-secondary" type="button" (click)="hackIt()">Submit</button>
-			  				</span>
-			  			</div>
-					</div>
+					<form (keydown)="onHack($event)">
+						<div class="form-group">
+							<label>Get Secure Data</label>
+							<div class="input-group">
+								<input type="text" placeholder="http://url"  class="form-control" id="hack"
+				         [(ngModel)]="hack" name="to">
+				         		<span class="input-group-btn">
+				    				<button class="btn btn-secondary" type="button" (click)="hackIt()">Submit</button>
+				  				</span>
+				  			</div>
+						</div>
+					</form>
 					<div>{{hackAnswer}}</div>
 				</div>
 			</div>

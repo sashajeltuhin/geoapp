@@ -1,10 +1,10 @@
 
-docker run -d -p 8077 -e GEO_KEY="AIzaSyDr3iN4ZiOdk_X3t8Wx1s_Y6rvqxQUnsWI" -e GEO_TITLE="Driving on " -e GEO_PLACEHOLDER="Enter something..." -e GEO_DIR_KEY="AIzaSyDp7yLyid5qJOIgQo1d_gt11NBBGCJivFA" -e CASH_LIMIT="1000" --name acpsec -v ~/dev/kubernetes/labexpress/geoapp/trip:/data/www tripnode node server.js
+docker run -d -p 8077 -e GEO_KEY="AIzaSyDr3iN4ZiOdk_X3t8Wx1s_Y6rvqxQUnsWI" -e GEO_TITLE="Driving on " -e GEO_PLACEHOLDER="Enter something..." -e GEO_DIR_KEY="AIzaSyDp7yLyid5qJOIgQo1d_gt11NBBGCJivFA" -e CASH_LIMIT="1000" --name acpsec --net="acp" -v ~/dev/kubernetes/labexpress/geoapp/trip:/data/www node:6 node /data/www/server.js
 
-docker run -d -p 8077 -e GEO_KEY="AIzaSyDr3iN4ZiOdk_X3t8Wx1s_Y6rvqxQUnsWI" -e GEO_TITLE="Driving on " -e GEO_PLACEHOLDER="Enter something..." -e GEO_DIR_KEY="AIzaSyDp7yLyid5qJOIgQo1d_gt11NBBGCJivFA" -e CASH_LIMIT="1000" --name acpsec sashaz/acpsec:v1 node server.js
+docker run -d -p 8077 -e GEO_KEY="AIzaSyDr3iN4ZiOdk_X3t8Wx1s_Y6rvqxQUnsWI" -e GEO_TITLE="Driving on " -e GEO_PLACEHOLDER="Enter something..." -e GEO_DIR_KEY="AIzaSyDp7yLyid5qJOIgQo1d_gt11NBBGCJivFA" -e CASH_LIMIT="1000" --name acpsec sashaz/acpsec:v2 node server.js
 
 
-docker build -f deployment/Dockerfile -t sashaz/acpsec:v1 .
+docker build -f deployment/Dockerfile -t sashaz/acpsec:v2 .
 
 
 
