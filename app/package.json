@@ -1,0 +1,17 @@
+{
+  "name": "acpsec",
+  "version": "0.0.4",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "appdynamics":"4.3.3",
+    "body-parser": "^1.16.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.1",
+    "jwt-simple": "^0.5.1",
+    "mongodb": "^2.2.28",
+    "request": "^2.79.0"
+  }
+}
