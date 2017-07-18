@@ -1,13 +1,3 @@
-require("appdynamics").profile({
- controllerHostName: 'hopper2017071114551625.saas.appdynamics.com',
- controllerPort: 443, 
- controllerSslEnabled: true,
- accountName: 'hopper2017071114551625',
- accountAccessKey: 'k1097086k13e',
- applicationName: 'BankingSecure',
- tierName: 'Web',
- nodeName: 'process'
-});
 
 var http = require('http');
 var express = require('express');

@@ -1,16 +1,15 @@
 //AppD insert
 
-require("appdynamics").profile({
- controllerHostName: 'hopper2017071114551625.saas.appdynamics.com',
- controllerPort: 443, 
- 
- // If SSL, be sure to enable the next line
- //controllerSslEnabled: true,
- accountName: 'hopper2017071114551625',
- accountAccessKey: 'k1097086k13e',
- applicationName: 'Banking',
- tierName: 'Web',
- nodeName: 'process' 
-});
+var appDobj = {
+	 controllerHostName: process.env['APPD_URL'],
+	 controllerPort: 443, 
+	 controllerSslEnabled: true,
+	 accountName: process.env['APPD_ACCOUNT'],
+	 accountAccessKey: process.env['APPD_KEY'],
+	 applicationName: process.env['APPD_APP_NAME'],
+	 tierName: process.env['APPD_APP_TIER'],
+	 nodeName: 'process'
+}
+require("appdynamics").profile(appDobj);
 
 //End AppD insert

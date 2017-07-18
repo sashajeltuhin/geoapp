@@ -1,10 +1,10 @@
 
 docker run -d -p 8077 -e GEO_KEY="AIzaSyDr3iN4ZiOdk_X3t8Wx1s_Y6rvqxQUnsWI" -e GEO_APP_TITLE="Secure Banking" -e GEO_TITLE="Driving on " -e GEO_PLACEHOLDER="Enter something..." -e GEO_DIR_KEY="AIzaSyDp7yLyid5qJOIgQo1d_gt11NBBGCJivFA" -e CASH_LIMIT="1000" --name acpsec --net="acp" -v ~/dev/kubernetes/labexpress/geoapp/trip:/data/www node:6 node /data/www/server.js
 
-docker run -d -p 8077 -e GEO_KEY="AIzaSyDr3iN4ZiOdk_X3t8Wx1s_Y6rvqxQUnsWI" -e GEO_APP_TITLE="Secure Banking" -e GEO_TITLE="Driving on " -e GEO_PLACEHOLDER="Enter something..." -e GEO_DIR_KEY="AIzaSyDp7yLyid5qJOIgQo1d_gt11NBBGCJivFA" -e CASH_LIMIT="1000" --name acpsec sashaz/acpsec:v5 node server.js
+docker run -d -p 8077 -e GEO_KEY="AIzaSyDr3iN4ZiOdk_X3t8Wx1s_Y6rvqxQUnsWI" -e GEO_APP_TITLE="Secure Banking" -e GEO_TITLE="Driving on " -e GEO_PLACEHOLDER="Enter something..." -e GEO_DIR_KEY="AIzaSyDp7yLyid5qJOIgQo1d_gt11NBBGCJivFA" -e APPD_URL="hopper2017071114551625.saas.appdynamics.com" -e APPD_ACCOUNT="hopper2017071114551625" -e APPD_KEY="" -e APPD_APP_NAME="ACPFULL" -e APPD_APP_TIER="Web" -e CASH_LIMIT="1000" --name acpsec sashaz/acpsec:v7 node server.js
 
 
-docker build -t sashaz/acpsec:v5 .
+docker build -t sashaz/acpsec:vX .
 
 
 
