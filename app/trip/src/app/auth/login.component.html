@@ -1,6 +1,14 @@
     <div class="container page-section middle-box text-center loginscreen">
         <form (ngSubmit)="login()" #loginForm="ngForm">
-            <div class="form-group">
+            <div class="row">
+              <div class="col-lg-6 text-center" style="margin-top:30px">
+                <h4>Your Account</h4>
+                </div>
+                <div class="col-lg-4" style="margin:20px">
+                <a routerLink="/search"><img src="assets/img/branch.jpg" height="50px" width="50px" alt="Acme Bank Logo"></a>
+              </div>
+            </div>
+            <div class="form-group" style="margin:top:150px;">
                 <input type="email" name="username" [(ngModel)]="person.email" class="form-control" placeholder="Your Email" required="">
             </div>
             <div class="form-group">
@@ -11,6 +19,7 @@
             <a href="#"><small>Forgot password?</small></a>
             <p class="text-muted text-center"><small>Do not have an account?</small></p>
             <a class="btn btn-sm btn-white btn-block" ng-click='navTo("register")'>Create an account</a>
+            <p class="text-info">{{message}}</p>
         </form>
-        <p class="m-t"> <small>Mooshpoochie by Yuliart &copy; 2015-2017</small> </p>
+        <p class="m-t"> <small>Acme Bank &copy; 2017</small> </p>
     </div>

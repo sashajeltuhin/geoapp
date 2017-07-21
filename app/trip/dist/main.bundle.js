@@ -6,11 +6,11 @@ webpackJsonp([1,4],{
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_of__ = __webpack_require__(553);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_of__ = __webpack_require__(554);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_do__ = __webpack_require__(556);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_do__ = __webpack_require__(557);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_do___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_do__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_delay__ = __webpack_require__(555);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_delay__ = __webpack_require__(556);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_delay___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_delay__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__handler_service__ = __webpack_require__(197);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
@@ -212,7 +212,7 @@ var ErrObj = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__error_errObj__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HandlerService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -273,6 +273,56 @@ var HandlerService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__(133);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthGuard = (function () {
+    function AuthGuard(authService, router) {
+        this.authService = authService;
+        this.router = router;
+    }
+    AuthGuard.prototype.canActivate = function (route, state) {
+        var url = state.url;
+        return this.checkLogin(url);
+    };
+    AuthGuard.prototype.checkLogin = function (url) {
+        if (this.authService.isLoggedIn) {
+            return true;
+        }
+        // Store the attempted URL for redirecting
+        this.authService.redirectUrl = url;
+        // Navigate to the login page with extras
+        this.router.navigate(['/login']);
+        return false;
+    };
+    AuthGuard = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _b) || Object])
+    ], AuthGuard);
+    return AuthGuard;
+    var _a, _b;
+}());
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/app/trip/src/authguard.service.js.map
+
+/***/ }),
+
+/***/ 313:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__person__ = __webpack_require__(474);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -316,6 +366,9 @@ var LoginComponent = (function () {
             else {
                 _this.message = 'Invalid credentials ...';
             }
+        }, function (error) {
+            console.log(error);
+            _this.message = error.msg;
         });
     };
     LoginComponent.prototype.logout = function () {
@@ -325,7 +378,7 @@ var LoginComponent = (function () {
     LoginComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
             selector: 'login-form',
-            template: __webpack_require__(545)
+            template: __webpack_require__(546)
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _b) || Object])
     ], LoginComponent);
@@ -336,7 +389,7 @@ var LoginComponent = (function () {
 
 /***/ }),
 
-/***/ 313:
+/***/ 314:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -369,8 +422,8 @@ var ErrorComponent = (function () {
     ErrorComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
             selector: 'app-error',
-            template: __webpack_require__(546),
-            styles: [__webpack_require__(540)]
+            template: __webpack_require__(547),
+            styles: [__webpack_require__(541)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__error_service__["a" /* ErrorService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__error_service__["a" /* ErrorService */]) === 'function' && _a) || Object])
     ], ErrorComponent);
@@ -381,7 +434,7 @@ var ErrorComponent = (function () {
 
 /***/ }),
 
-/***/ 314:
+/***/ 315:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -459,8 +512,8 @@ var MapComponent = (function () {
     MapComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
             selector: 'app-map',
-            template: __webpack_require__(547),
-            styles: [__webpack_require__(541)]
+            template: __webpack_require__(548),
+            styles: [__webpack_require__(542)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__geo_service__["a" /* GeoService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__geo_service__["a" /* GeoService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__map_map_service__["a" /* MapService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__map_map_service__["a" /* MapService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__error_error_service__["a" /* ErrorService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__error_error_service__["a" /* ErrorService */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _e) || Object])
     ], MapComponent);
@@ -471,7 +524,7 @@ var MapComponent = (function () {
 
 /***/ }),
 
-/***/ 315:
+/***/ 316:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -479,9 +532,10 @@ var MapComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__geo_service__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__map_map_service__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__labels__ = __webpack_require__(476);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__searchModel__ = __webpack_require__(477);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__error_error_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__poi__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__labels__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__searchModel__ = __webpack_require__(478);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__error_error_service__ = __webpack_require__(63);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -499,18 +553,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SearchComponent = (function () {
     function SearchComponent(geo, maps, errSvc, router) {
         this.geo = geo;
         this.maps = maps;
         this.errSvc = errSvc;
         this.router = router;
-        this.model = new __WEBPACK_IMPORTED_MODULE_5__searchModel__["a" /* SearchModel */]();
-        this.labels = new __WEBPACK_IMPORTED_MODULE_4__labels__["a" /* Label */]();
+        this.model = new __WEBPACK_IMPORTED_MODULE_6__searchModel__["a" /* SearchModel */]();
+        this.labels = new __WEBPACK_IMPORTED_MODULE_5__labels__["a" /* Label */]();
         this.dist = 0;
         this.mapID = "smap";
         this.roadLayer = "roads-new";
         this.nosecrets = true;
+        this.showSearches = false;
     }
     SearchComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -522,6 +578,13 @@ var SearchComponent = (function () {
             _this.error = error;
             _this.errSvc.recordError(_this.error, _this.router);
         });
+        this.geo.loadSearches()
+            .subscribe(function (savedSearches) {
+            _this.savedSearches = savedSearches;
+            console.log("this.savedSearches", _this.savedSearches);
+        }, function (error) {
+            console.log("savedSearches", error);
+        });
         this.map = this.maps.initMap("smap");
         var lat = 33.983312;
         var lng = -84.343748;
@@ -531,12 +594,19 @@ var SearchComponent = (function () {
                     lat = pos.coords.latitude;
                     lng = pos.coords.longitude;
                     console.log("Using Geolocation", lat, lng);
+                    var poi = new __WEBPACK_IMPORTED_MODULE_4__poi__["a" /* Poi */]();
+                    poi.name = "Current location";
+                    _this.model.from = poi.name;
+                    poi.lat = lat;
+                    poi.lng = lng;
+                    _this.confirmFrom(poi);
                 }
                 else {
                     console.log("Geolocation not supported");
                 }
                 _this.map.panTo(new L.LatLng(lat, lng));
             }, function (err) {
+                this.map.panTo(new L.LatLng(lat, lng));
                 console.log("Geolocation not supported", err);
             });
         }
@@ -554,10 +624,12 @@ var SearchComponent = (function () {
         this.runsearchFrom();
     };
     SearchComponent.prototype.clickTo = function () {
+        console.log("click to");
         this.runsearchTo();
     };
     SearchComponent.prototype.searchTo = function (event) {
         if (event.keyCode == 13) {
+            console.log("searchTo kode 13");
             this.runsearchTo();
         }
     };
@@ -599,11 +671,42 @@ var SearchComponent = (function () {
         }
     };
     SearchComponent.prototype.confirmTo = function (poi) {
+        console.log("confirm to", poi);
         if (poi && poi.lat && poi.lng) {
             this.confirmedTo = poi;
             //L.marker(L.latLng(this.confirmedTo.lat, this.confirmedTo.lng)).addTo(this.map);
             this.panTo(poi);
+            console.log("assigning the name to poi");
+            poi.name = this.model.to;
+            console.log("confirm to saving");
+            this.geo.saveConfirmed(poi).subscribe(function (saved) {
+                console.log(saved);
+            }, function (error) {
+                console.log(error);
+            });
         }
+    };
+    SearchComponent.prototype.confirmSaved = function (poi) {
+        if (poi && poi.lat && poi.lng) {
+            this.confirmedTo = poi;
+            //L.marker(L.latLng(this.confirmedTo.lat, this.confirmedTo.lng)).addTo(this.map);
+            this.panTo(poi);
+            this.model.to = poi.name;
+        }
+    };
+    SearchComponent.prototype.deletePoi = function (poi) {
+        var _this = this;
+        this.geo.deletePoi(poi).subscribe(function (answer) {
+            console.log(answer);
+            for (var i = _this.savedSearches.length - 1; i >= 0; i--) {
+                if (poi.id === _this.savedSearches[i].id) {
+                    _this.savedSearches.splice(i, 1);
+                    break;
+                }
+            }
+        }, function (error) {
+            console.log(error);
+        });
     };
     SearchComponent.prototype.panTo = function (poi) {
         if (this.markers) {
@@ -620,6 +723,8 @@ var SearchComponent = (function () {
             var poly = L.polygon(dots);
             var bounds = poly.getBounds();
             this.map.fitBounds(bounds, { padding: [20, 20] });
+            //run route
+            this.onSubmit();
         }
         else if (poi) {
             this.map.panTo(L.latLng(poi.lat, poi.lng));
@@ -692,13 +797,16 @@ var SearchComponent = (function () {
     SearchComponent.prototype.toggleSecrets = function () {
         this.nosecrets = !this.nosecrets;
     };
+    SearchComponent.prototype.toggleSearches = function () {
+        this.showSearches = !this.showSearches;
+    };
     SearchComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
             selector: 'geo-search',
-            template: __webpack_require__(548),
-            styles: [__webpack_require__(542)]
+            template: __webpack_require__(549),
+            styles: [__webpack_require__(543)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__geo_service__["a" /* GeoService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__geo_service__["a" /* GeoService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__map_map_service__["a" /* MapService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__map_map_service__["a" /* MapService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__error_error_service__["a" /* ErrorService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__error_error_service__["a" /* ErrorService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__geo_service__["a" /* GeoService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__geo_service__["a" /* GeoService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__map_map_service__["a" /* MapService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__map_map_service__["a" /* MapService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__error_error_service__["a" /* ErrorService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__error_error_service__["a" /* ErrorService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], SearchComponent);
     return SearchComponent;
     var _a, _b, _c, _d;
@@ -707,7 +815,7 @@ var SearchComponent = (function () {
 
 /***/ }),
 
-/***/ 316:
+/***/ 317:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -738,8 +846,20 @@ var SecretsComponent = (function () {
         this.errSvc = errSvc;
         this.router = router;
         this.cashLimit = 0;
+        this.account = "";
     }
     SecretsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.geo.getAccount()
+            .subscribe(function (data) {
+            _this.account = data.account;
+            _this.loadLimit();
+        }, function (error) {
+            _this.error = error;
+            _this.errSvc.recordError(_this.error, _this.router);
+        });
+    };
+    SecretsComponent.prototype.loadLimit = function () {
         var _this = this;
         this.geo.getLimit()
             .subscribe(function (data) {
@@ -753,8 +873,8 @@ var SecretsComponent = (function () {
     SecretsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
             selector: 'app-secrets',
-            template: __webpack_require__(549),
-            styles: [__webpack_require__(543)]
+            template: __webpack_require__(550),
+            styles: [__webpack_require__(544)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__geo_service__["a" /* GeoService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__geo_service__["a" /* GeoService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__map_map_service__["a" /* MapService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__map_map_service__["a" /* MapService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__error_error_service__["a" /* ErrorService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__error_error_service__["a" /* ErrorService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], SecretsComponent);
@@ -765,7 +885,7 @@ var SecretsComponent = (function () {
 
 /***/ }),
 
-/***/ 347:
+/***/ 348:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -774,20 +894,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 347;
+webpackEmptyContext.id = 348;
 
 
 /***/ }),
 
-/***/ 348:
+/***/ 349:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(437);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(438);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(478);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(479);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(472);
 
 
 
@@ -800,16 +920,17 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 469:
+/***/ 470:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_map_component__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__error_error_component__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__search_search_component__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__secrets_secrets_component__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_authguard_service__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__map_map_component__ = __webpack_require__(315);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__error_error_component__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__search_search_component__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__secrets_secrets_component__ = __webpack_require__(317);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -826,6 +947,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var routes = [
     {
         path: '',
@@ -834,21 +956,22 @@ var routes = [
     },
     {
         path: 'search',
-        component: __WEBPACK_IMPORTED_MODULE_4__search_search_component__["a" /* SearchComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_5__search_search_component__["a" /* SearchComponent */],
         pathMatch: 'full'
     },
     {
         path: 'secrets',
-        component: __WEBPACK_IMPORTED_MODULE_5__secrets_secrets_component__["a" /* SecretsComponent */],
-        pathMatch: 'full'
+        component: __WEBPACK_IMPORTED_MODULE_6__secrets_secrets_component__["a" /* SecretsComponent */],
+        pathMatch: 'full',
+        canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_authguard_service__["a" /* AuthGuard */]]
     },
     {
         path: 'map/:search',
-        component: __WEBPACK_IMPORTED_MODULE_2__map_map_component__["a" /* MapComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_3__map_map_component__["a" /* MapComponent */]
     },
     {
         path: 'oops',
-        component: __WEBPACK_IMPORTED_MODULE_3__error_error_component__["a" /* ErrorComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_4__error_error_component__["a" /* ErrorComponent */],
         pathMatch: 'full'
     }
 ];
@@ -869,7 +992,7 @@ var AppRoutingModule = (function () {
 
 /***/ }),
 
-/***/ 470:
+/***/ 471:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -914,8 +1037,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
             selector: 'app-root',
-            template: __webpack_require__(544),
-            styles: [__webpack_require__(539)]
+            template: __webpack_require__(545),
+            styles: [__webpack_require__(540)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["b" /* Title */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["b" /* Title */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__geo_service__["a" /* GeoService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__geo_service__["a" /* GeoService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__error_error_service__["a" /* ErrorService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__error_error_service__["a" /* ErrorService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], AppComponent);
@@ -926,28 +1049,28 @@ var AppComponent = (function () {
 
 /***/ }),
 
-/***/ 471:
+/***/ 472:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(428);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(429);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing_module__ = __webpack_require__(469);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular_font_awesome_angular_font_awesome__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing_module__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular_font_awesome_angular_font_awesome__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__handler_service__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(470);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__map_map_component__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__map_map_component__ = __webpack_require__(315);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__map_map_service__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__geo_service__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__distance_pipe__ = __webpack_require__(475);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__auth_auth_module__ = __webpack_require__(472);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__auth_login_component__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__search_search_component__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__error_error_component__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__auth_auth_module__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__auth_login_component__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__search_search_component__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__error_error_component__ = __webpack_require__(314);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__error_error_service__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__secrets_secrets_component__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__secrets_secrets_component__ = __webpack_require__(317);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1010,15 +1133,15 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 472:
+/***/ 473:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authguard_service__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authguard_service__ = __webpack_require__(312);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__auth_service__ = __webpack_require__(133);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_component__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_component__ = __webpack_require__(313);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1058,56 +1181,6 @@ var AuthRoutingModule = (function () {
     return AuthRoutingModule;
 }());
 //# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/app/trip/src/auth.module.js.map
-
-/***/ }),
-
-/***/ 473:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__(133);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var AuthGuard = (function () {
-    function AuthGuard(authService, router) {
-        this.authService = authService;
-        this.router = router;
-    }
-    AuthGuard.prototype.canActivate = function (route, state) {
-        var url = state.url;
-        return this.checkLogin(url);
-    };
-    AuthGuard.prototype.checkLogin = function (url) {
-        if (this.authService.isLoggedIn) {
-            return true;
-        }
-        // Store the attempted URL for redirecting
-        this.authService.redirectUrl = url;
-        // Navigate to the login page with extras
-        this.router.navigate(['/login']);
-        return false;
-    };
-    AuthGuard = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _b) || Object])
-    ], AuthGuard);
-    return AuthGuard;
-    var _a, _b;
-}());
-//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/app/trip/src/authguard.service.js.map
 
 /***/ }),
 
@@ -1185,6 +1258,20 @@ var Label = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Poi; });
+var Poi = (function () {
+    function Poi() {
+    }
+    return Poi;
+}());
+//# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/app/trip/src/poi.js.map
+
+/***/ }),
+
+/***/ 478:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchModel; });
 var SearchModel = (function () {
     function SearchModel() {
@@ -1195,7 +1282,7 @@ var SearchModel = (function () {
 
 /***/ }),
 
-/***/ 478:
+/***/ 479:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1208,13 +1295,6 @@ var environment = {
     production: false
 };
 //# sourceMappingURL=/Users/ajeltuhin/dev/kubernetes/labexpress/geoapp/app/trip/src/environment.js.map
-
-/***/ }),
-
-/***/ 539:
-/***/ (function(module, exports) {
-
-module.exports = ""
 
 /***/ }),
 
@@ -1249,49 +1329,56 @@ module.exports = ""
 /***/ 544:
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n"
+module.exports = ""
 
 /***/ }),
 
 /***/ 545:
 /***/ (function(module, exports) {
 
-module.exports = "    <div class=\"container page-section middle-box text-center loginscreen\">\n        <form (ngSubmit)=\"login()\" #loginForm=\"ngForm\">\n            <div class=\"form-group\">\n                <input type=\"email\" name=\"username\" [(ngModel)]=\"person.email\" class=\"form-control\" placeholder=\"Your Email\" required=\"\">\n            </div>\n            <div class=\"form-group\">\n                <input type=\"password\" name=\"password\" [(ngModel)]=\"person.pass\" class=\"form-control\" placeholder=\"Password\" required=\"\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-primary block full-width m-b\">Sign In</button>\n            \n            <a href=\"#\"><small>Forgot password?</small></a>\n            <p class=\"text-muted text-center\"><small>Do not have an account?</small></p>\n            <a class=\"btn btn-sm btn-white btn-block\" ng-click='navTo(\"register\")'>Create an account</a>\n        </form>\n        <p class=\"m-t\"> <small>Mooshpoochie by Yuliart &copy; 2015-2017</small> </p>\n    </div>"
+module.exports = "<router-outlet></router-outlet>\n"
 
 /***/ }),
 
 /***/ 546:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-4 col-lg-offset-1\">\n\t\t\t<h2>We have issues</h2>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-10 col-lg-offset-1\">\n\t\t\t<p>{{errObj.msg}}</p>\n\t\t\t<p>response code: {{errObj.code}}</p>\n\t\t</div>\n\t</div>\n</div>\n"
+module.exports = "    <div class=\"container page-section middle-box text-center loginscreen\">\n        <form (ngSubmit)=\"login()\" #loginForm=\"ngForm\">\n            <div class=\"row\">\n              <div class=\"col-lg-6 text-center\" style=\"margin-top:30px\">\n                <h4>Your Account</h4>\n                </div>\n                <div class=\"col-lg-4\" style=\"margin:20px\">\n                <a routerLink=\"/search\"><img src=\"assets/img/branch.jpg\" height=\"50px\" width=\"50px\" alt=\"Acme Bank Logo\"></a>\n              </div>\n            </div>\n            <div class=\"form-group\" style=\"margin:top:150px;\">\n                <input type=\"email\" name=\"username\" [(ngModel)]=\"person.email\" class=\"form-control\" placeholder=\"Your Email\" required=\"\">\n            </div>\n            <div class=\"form-group\">\n                <input type=\"password\" name=\"password\" [(ngModel)]=\"person.pass\" class=\"form-control\" placeholder=\"Password\" required=\"\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-primary block full-width m-b\">Sign In</button>\n            \n            <a href=\"#\"><small>Forgot password?</small></a>\n            <p class=\"text-muted text-center\"><small>Do not have an account?</small></p>\n            <a class=\"btn btn-sm btn-white btn-block\" ng-click='navTo(\"register\")'>Create an account</a>\n            <p class=\"text-info\">{{message}}</p>\n        </form>\n        <p class=\"m-t\"> <small>Acme Bank &copy; 2017</small> </p>\n    </div>"
 
 /***/ }),
 
 /***/ 547:
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-9 col-offset-lg-1\">\n\t\t\t<h2>Route on Kubernetes</h2>\n\t\t\t<div style=\"width:100%   ;height:300px\" id=\"map\"></div>\n\t\t\t\t<p>The distance is {{ dist | distance }}</p>\n\t\t</div>\n\t</div>\n\t<div class=\"row\" *ngFor=\"let wp of waypoints;\">\n\t\t<div class=\"col-lg-2 col-offset-lg-1\">\n\t\t\t<h3>{{wp.name}}</h3>\n\t\t\t<p>{{wp.address}}</p>\n\t\t</div>\n\t</div>\n</div>\n\n\n\n\n\n\n \n"
+module.exports = "<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-4 col-lg-offset-1\">\n\t\t\t<h2>We have issues</h2>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-10 col-lg-offset-1\">\n\t\t\t<p>{{errObj.msg}}</p>\n\t\t\t<p>response code: {{errObj.code}}</p>\n\t\t</div>\n\t</div>\n</div>\n"
 
 /***/ }),
 
 /***/ 548:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"navbar navbar-inverse\">\n\t<div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a href=\"https://apprenda.com\" class=\"navbar-left\"><img height=\"50px\" width=\"50px\" src=\"assets/img/apprenda-logo.png\" alt=\"Apprenda Logo\"></a>\n          <a class=\"navbar-brand\" routerLink=\"/search\">Public Banking. Branch Locator</a>\n     </div>\n     <div id=\"navbar\" class=\"collapse navbar-collapse\">\n          <ul class=\"nav navbar-nav\">\n            <!-- <li class=\"active\"><a router-link=\"/\">Home</a></li> -->\n          </ul>\n     </div>\n</div>\n<div class=\"container\">\n\t<div class=\"row\">\n\t  <div class=\"col-lg-3 col-lg-offset-1\" style=\"margin:auto;height:50px\">\n\t  \t<p>{{labels.title}}</p>\n\t    <a href=\"https://kubernetes.io\"><img src=\"assets/img/kubernetes-logo.png\" height=\"50px\" width=\"50px\" alt=\"Kubernetes Logo\"></a>\n\t  </div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-4 col-lg-offset-1\">\n\t\t\t<form (keydown)=\"searchFrom($event)\">\n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<label>From</label>\n\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t<input type=\"text\" placeholder=\"{{labels.placeholder}}\"  class=\"form-control\" id=\"from\"\n\t         [(ngModel)]=\"model.from\" name=\"from\">\n\t         \t<span class=\"input-group-btn\">\n        \t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"clickFrom()\">...</button>\n      \t\t\t\t</span>\n      \t\t\t </div>\n\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t<div *ngIf=\"frompoints && frompoints.length > 1\" style=\"color:#080;margin:10px\">Click on the desired venue to put it on the map</div>\n\t\t\t\t<div style=\"cursor:pointer\" *ngFor=\"let poi of frompoints;\">\n\t\t\t\t\t  <p (click)=\"confirmFrom(poi)\">{{poi.address}}</p>\n\t\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-lg-4 col-lg-offset-1\">\n\t\t\t<form (keydown)=\"searchTo($event)\">\n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<label>To</label>\n\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t<input type=\"text\" placeholder=\"{{labels.placeholder}}\"  class=\"form-control\" id=\"to\"\n\t         [(ngModel)]=\"model.to\" name=\"to\">\n\t         \t\t<span class=\"input-group-btn\">\n        \t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"clickTo()\">...</button>\n      \t\t\t\t</span>\n      \t\t\t </div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"topoints && topoints.length > 1\" style=\"color:#080;margin:10px\">Click on the desired venue to put it on the map</div>\n\t\t\t\t<div style=\"cursor:pointer\" *ngFor=\"let poi of topoints;\">\n\t\t\t\t\t  <p (click)=\"confirmTo(poi)\">{{poi.address}}</p>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-1 col-lg-offset-1\">\n\t\t\t<button (click)=\"onSubmit()\">Route...\t</button>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-9 col-lg-offset-1\">\n\t\t\t<div style=\"margin-top:10px;width:100%;height:300px\" id=\"smap\"></div>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-4 col-lg-offset-2 form-group\">\n\t\t\t<div class=\"panel\" style=\"margin-top:30px\">\n\t\t\t\t<div class=\"panel-header\">\n\t\t\t\t\t<button (click)=\"toggleSecrets()\"><i class=\"fa fa-lock\"></i></button>\n\t\t\t\t</div>\n\t\t\t\t<div [hidden]=\"nosecrets\" class=\"panel-body\">\n\t\t\t\t\t<form (keydown)=\"onHack($event)\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label>Get Secure Data</label>\n\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t<input type=\"text\" placeholder=\"http://url\"  class=\"form-control\" id=\"hack\"\n\t\t\t\t         [(ngModel)]=\"hack\" name=\"to\">\n\t\t\t\t         \t\t<span class=\"input-group-btn\">\n\t\t\t\t    \t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"hackIt()\">Submit</button>\n\t\t\t\t  \t\t\t\t</span>\n\t\t\t\t  \t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t\t<div>{{hackAnswer}}</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n"
+module.exports = "\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-9 col-offset-lg-1\">\n\t\t\t<h2>Route on Kubernetes</h2>\n\t\t\t<div style=\"width:100%   ;height:300px\" id=\"map\"></div>\n\t\t\t\t<p>The distance is {{ dist | distance }}</p>\n\t\t</div>\n\t</div>\n\t<div class=\"row\" *ngFor=\"let wp of waypoints;\">\n\t\t<div class=\"col-lg-2 col-offset-lg-1\">\n\t\t\t<h3>{{wp.name}}</h3>\n\t\t\t<p>{{wp.address}}</p>\n\t\t</div>\n\t</div>\n</div>\n\n\n\n\n\n\n \n"
 
 /***/ }),
 
 /***/ 549:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"navbar navbar-inverse\">\n\t<div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a href=\"https://apprenda.com\" class=\"navbar-left\"><img height=\"50px\" width=\"50px\" src=\"assets/img/apprenda-logo.png\" alt=\"Apprenda Logo\"></a>\n          <a class=\"navbar-brand\" routerLink=\"/search\">Secure Banking</a>\n     </div>\n     <div id=\"navbar\" class=\"collapse navbar-collapse\">\n          <ul class=\"nav navbar-nav\">\n            <!-- <li class=\"active\"><a router-link=\"/\">Home</a></li> -->\n          </ul>\n     </div>\n</div>\n<div class=\"container\">\n\t<div class=\"row\">\n\t  <div class=\"col-lg-3 col-lg-offset-1\" style=\"margin:auto;height:50px\">\n\t    <a href=\"https://kubernetes.io\"><img src=\"assets/img/kubernetes-logo.png\" height=\"50px\" width=\"50px\" alt=\"Kubernetes Logo\"></a>\n\t  </div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-2 col-lg-offset-1\">\n\t\t\t<h3>Acme Branch</h3>\n\t\t\t<img src=\"assets/img/branch.jpg\" height=\"150px\" width=\"150px\" alt=\"Acme Bank\">\n\t  \t</div>\n\t\t<div class=\"col-lg-4\">\n\t\t\t<p style=\"margin-top:50px\">Your Current Balance:</p>\n\t\t\t<h3>{{cashLimit | currency}}</h3>\n\t\t\t<p>Account ending in ...6378</p>\n\t\t</div>\n\t</div>\n</div>\n"
+module.exports = "<div class=\"navbar navbar-inverse\">\n\t<div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a href=\"https://apprenda.com\" class=\"navbar-left\"><img height=\"50px\" width=\"50px\" src=\"assets/img/apprenda-logo.png\" alt=\"Apprenda Logo\"></a>\n          <a class=\"navbar-brand\" routerLink=\"/search\">Public Banking. Branch Locator</a>\n     </div>\n     <div id=\"navbar\" class=\"collapse navbar-collapse\">\n          <ul class=\"nav navbar-nav\">\n            <!-- <li class=\"active\"><a router-link=\"/\">Home</a></li> -->\n          </ul>\n     </div>\n</div>\n<div class=\"container\">\n\t<div class=\"row\">\n\t  <div class=\"col-lg-3 col-lg-offset-1\" style=\"margin:auto;height:50px\">\n\t  \t<p>Acme Bank</p>\n\t    <a routerLink=\"/search\"><img src=\"assets/img/branch.jpg\" height=\"50px\" width=\"50px\" alt=\"Acme Bank Logo\"></a>\n\t  </div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-4 col-lg-offset-1\">\n\t\t\t<h2>Locate your branch</h2>\n\t\t\t<div style=\"border:solid 1px gray; padding:10px\">\n\t\t\t<form (keydown)=\"searchFrom($event)\">\n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<label>From</label>\n\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t<input type=\"text\" placeholder=\"Your location\"  class=\"form-control\" id=\"from\"\n\t         [(ngModel)]=\"model.from\" name=\"from\">\n\t         \t<span class=\"input-group-btn\">\n        \t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"clickFrom()\">...</button>\n      \t\t\t\t</span>\n      \t\t\t </div>\n\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t<div *ngIf=\"frompoints && frompoints.length > 1\" style=\"color:#080;margin:10px\">Click on the desired venue to put it on the map</div>\n\t\t\t\t<div style=\"cursor:pointer\" *ngFor=\"let poi of frompoints;\">\n\t\t\t\t\t  <p (click)=\"confirmFrom(poi)\">{{poi.address}}</p>\n\t\t\t\t</div>\n\t\t\t\t<form (keydown)=\"searchTo($event)\">\n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<label>To</label>\n\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t<input type=\"text\" placeholder=\"{{labels.placeholder}}\"  class=\"form-control\" id=\"to\"\n\t         [(ngModel)]=\"model.to\" name=\"to\">\n\t         \t\t<span class=\"input-group-btn\">\n        \t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"clickTo()\">...</button>\n      \t\t\t\t</span>\n      \t\t\t </div>\n\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"margin:15px\">\n\t\t\t\t\t<button (click)=\"onSubmit()\">Route...\t</button>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"topoints && topoints.length > 1\" style=\"color:#080;margin:10px\">Click on the desired venue to put it on the map</div>\n\t\t\t\t<div style=\"cursor:pointer\" *ngFor=\"let poi of topoints;\">\n\t\t\t\t\t  <p (click)=\"confirmTo(poi)\">{{poi.address}}</p>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"savedSearches && savedSearches.length > 0\" style=\"margin-top:20px;border:solid 1px gray; padding:10px;\">\n\t\t\t\t\t<div (click)=\"toggleSearches()\" style=\"cursor:pointer; color:#080;margin:10px\">Previous searches</div>\n\t\t\t\t\t<div *ngIf=\"showSearches\">\n\t\t\t\t\t\t<div class=\"row\" style=\"cursor:pointer\" *ngFor=\"let poi of savedSearches;\">\n\t\t\t\t\t\t\t<div class=\"col-sm-10\">\n\t\t\t\t\t\t\t  <p (click)=\"confirmSaved(poi)\">{{poi.name}}, {{poi.address}}</p>\n\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t <div class=\"col-sm-1\">\n\t\t\t\t\t\t\t  <button (click)=\"deletePoi(poi)\" class=\"text-warning\">x</button>\n\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\t\n\t\t</div>\n\t\t<div class=\"col-lg-7\">\n\t\t\t<div *ngIf=\"dist\" style=\"margin:10px\">Distance: {{dist | distance}}</div>\n\t\t\t<div style=\"margin-top:10px;width:100%;height:300px; border:solid 1px gray;\" id=\"smap\"></div>\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-4 col-lg-offset-2 form-group\">\n\t\t\t<div class=\"panel\" style=\"margin-top:30px\">\n\t\t\t\t<div class=\"panel-header\">\n\t\t\t\t\t<button (click)=\"toggleSecrets()\"><i class=\"fa fa-lock\"></i></button>\n\t\t\t\t</div>\n\t\t\t\t<div [hidden]=\"nosecrets\" class=\"panel-body\">\n\t\t\t\t\t<form (keydown)=\"onHack($event)\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label>Get Secure Data</label>\n\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t<input type=\"text\" placeholder=\"http://url\"  class=\"form-control\" id=\"hack\"\n\t\t\t\t         [(ngModel)]=\"hack\" name=\"to\">\n\t\t\t\t         \t\t<span class=\"input-group-btn\">\n\t\t\t\t    \t\t\t\t<button class=\"btn btn-secondary\" type=\"button\" (click)=\"hackIt()\">Submit</button>\n\t\t\t\t  \t\t\t\t</span>\n\t\t\t\t  \t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t\t<div>{{hackAnswer}}</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n"
 
 /***/ }),
 
-/***/ 586:
+/***/ 550:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"navbar navbar-inverse\">\n\t<div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a href=\"https://apprenda.com\" class=\"navbar-left\"><img height=\"50px\" width=\"50px\" src=\"assets/img/apprenda-logo.png\" alt=\"Apprenda Logo\"></a>\n          <a class=\"navbar-brand\" routerLink=\"/search\">Secure Banking</a>\n     </div>\n     <div id=\"navbar\" class=\"collapse navbar-collapse\">\n          <ul class=\"nav navbar-nav\">\n            <!-- <li class=\"active\"><a router-link=\"/\">Home</a></li> -->\n          </ul>\n     </div>\n</div>\n<div class=\"container\">\n<!-- \t<div class=\"row\">\n\t  <div class=\"col-lg-3 col-lg-offset-1\" style=\"margin:auto;height:50px\">\n\t    <a href=\"https://kubernetes.io\"><img src=\"assets/img/kubernetes-logo.png\" height=\"50px\" width=\"50px\" alt=\"Kubernetes Logo\"></a>\n\t  </div>\n\t</div> -->\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-2 col-lg-offset-1\">\n\t\t\t<h3>Acme Branch</h3>\n\t\t\t<img src=\"assets/img/branch.jpg\" height=\"150px\" width=\"150px\" alt=\"Acme Bank\">\n\t  \t</div>\n\t\t<div class=\"col-lg-4\">\n\t\t\t<p style=\"margin-top:50px\">Your Current Balance:</p>\n\t\t\t<h3>{{cashLimit | currency}}</h3>\n\t\t\t<p>Account number: {{account}}</p>\n\t\t</div>\n\t</div>\n</div>\n"
+
+/***/ }),
+
+/***/ 587:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(348);
+module.exports = __webpack_require__(349);
 
 
 /***/ }),
@@ -1347,11 +1434,11 @@ var ErrorService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_auth_service__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__handler_service__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(554);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(555);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(557);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(558);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GeoService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1398,6 +1485,12 @@ var GeoService = (function () {
             .map(this.extractData)
             .catch(this.handler.handleError);
     };
+    GeoService.prototype.getAccount = function () {
+        this.addAuthHeader();
+        return this.http.get(this.url + "account", { headers: this.headers })
+            .map(this.extractData)
+            .catch(this.handler.handleError);
+    };
     GeoService.prototype.getRoute = function (from, to, via, mode) {
         if (via === void 0) { via = null; }
         if (mode === void 0) { mode = null; }
@@ -1411,9 +1504,31 @@ var GeoService = (function () {
             .map(this.extractData)
             .catch(this.handler.handleError);
     };
+    GeoService.prototype.saveConfirmed = function (poi) {
+        this.addAuthHeader();
+        var body = {};
+        body.poi = poi;
+        return this.http.post(this.url + "savePoi", body, { headers: this.headers })
+            .map(this.extractData)
+            .catch(this.handler.handleError);
+    };
+    GeoService.prototype.deletePoi = function (poi) {
+        this.addAuthHeader();
+        var body = {};
+        body.poi = poi;
+        return this.http.post(this.url + "deletePoi", body, { headers: this.headers })
+            .map(this.extractData)
+            .catch(this.handler.handleError);
+    };
     GeoService.prototype.lookup = function (search) {
         this.addAuthHeader();
         return this.http.post(this.url + "lookup", { "place": search }, { headers: this.headers })
+            .map(this.extractData)
+            .catch(this.handler.handleError);
+    };
+    GeoService.prototype.loadSearches = function () {
+        this.addAuthHeader();
+        return this.http.get(this.url + "loadSearches", { headers: this.headers })
             .map(this.extractData)
             .catch(this.handler.handleError);
     };
@@ -1437,5 +1552,5 @@ var GeoService = (function () {
 
 /***/ })
 
-},[586]);
+},[587]);
 //# sourceMappingURL=main.bundle.map

@@ -1,5 +1,6 @@
 export class Poi {
 	id: string;
+    _id: string;
     name: string;
     lat: number;
     lng: number;

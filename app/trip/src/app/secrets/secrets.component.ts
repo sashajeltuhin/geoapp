@@ -12,19 +12,35 @@ import {ErrorService} from '../error/error.service';
 export class SecretsComponent implements OnInit {
   private error;
   private cashLimit = 0;
+  private account = "";
   constructor(private geo:GeoService, private maps:MapService, private errSvc: ErrorService, private router: Router) { }
 
   ngOnInit() {
-  this.geo.getLimit()
+
+  this.geo.getAccount()
        .subscribe(
          data => {
-          this.cashLimit = data.limit;
-          console.log("this.cashLimit", this.cashLimit);
+          this.account = data.account;
+          this.loadLimit();
          },
          error =>  {
          this.error = error;
           this.errSvc.recordError(this.error, this.router);
          });
+
+  }
+
+  loadLimit(){
+    this.geo.getLimit()
+         .subscribe(
+           data => {
+            this.cashLimit = data.limit;
+            console.log("this.cashLimit", this.cashLimit);
+           },
+           error =>  {
+           this.error = error;
+            this.errSvc.recordError(this.error, this.router);
+           });
   }
 
 }

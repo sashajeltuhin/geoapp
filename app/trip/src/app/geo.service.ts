@@ -43,6 +43,13 @@ private headers;
                   .catch(this.handler.handleError);
   }
 
+  getAccount():Observable<any>{
+    this.addAuthHeader();
+    return this.http.get(this.url + "account", {headers: this.headers})
+                  .map(this.extractData)
+                  .catch(this.handler.handleError);
+  }
+
   getRoute(from, to, via=null, mode=null):Observable<any>{
     this.addAuthHeader();
     var body:any = {};
@@ -55,9 +62,34 @@ private headers;
                       .catch(this.handler.handleError);
   }
 
+  saveConfirmed(poi):Observable<any>{
+    this.addAuthHeader();
+    var body:any = {};
+    body.poi = poi;
+    return this.http.post(this.url + "savePoi", body, {headers: this.headers} )
+                      .map(this.extractData)
+                      .catch(this.handler.handleError);
+  }
+
+  deletePoi(poi):Observable<any>{
+    this.addAuthHeader();
+    var body:any = {};
+    body.poi = poi;
+    return this.http.post(this.url + "deletePoi", body, {headers: this.headers} )
+                      .map(this.extractData)
+                      .catch(this.handler.handleError);
+  }
+
   lookup(search):Observable<Poi[]>{
     this.addAuthHeader();
     return this.http.post(this.url + "lookup", {"place":search}, {headers: this.headers})
+                  .map(this.extractData)
+                  .catch(this.handler.handleError);
+  }
+
+  loadSearches():Observable<Poi[]>{
+    this.addAuthHeader();
+    return this.http.get(this.url + "loadSearches", {headers: this.headers})
                   .map(this.extractData)
                   .catch(this.handler.handleError);
   }

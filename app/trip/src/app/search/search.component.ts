@@ -18,6 +18,7 @@ declare let L: any;
 export class SearchComponent implements OnInit {
   private model = new SearchModel();
   private labels = new Label();
+  private savedSearches:Poi[];
   private error;
   private map;
   private markers;
@@ -31,6 +32,7 @@ export class SearchComponent implements OnInit {
   private hack;
   private hackAnswer;
   private nosecrets = true;
+  private showSearches = false;
 
   constructor(private geo:GeoService, private maps:MapService, private errSvc: ErrorService, private router: Router) { 
   }
@@ -46,6 +48,16 @@ export class SearchComponent implements OnInit {
          this.error = error;
           this.errSvc.recordError(this.error, this.router);
          });
+
+  this.geo.loadSearches()
+       .subscribe(
+         savedSearches => {
+          this.savedSearches = savedSearches
+          console.log("this.savedSearches", this.savedSearches);
+         },
+         error =>  {
+         console.log("savedSearches", error)
+         });
   this.map = this.maps.initMap("smap");
   var lat = 33.983312;
   var lng = -84.343748;
@@ -55,12 +67,19 @@ export class SearchComponent implements OnInit {
           lat = pos.coords.latitude;
           lng = pos.coords.longitude;
           console.log("Using Geolocation", lat, lng);
+          var poi = new Poi();
+          poi.name = "Current location";
+          this.model.from = poi.name;
+          poi.lat = lat;
+          poi.lng = lng;
+          this.confirmFrom(poi);
         }
         else{
          console.log("Geolocation not supported");
         }
         this.map.panTo(new L.LatLng(lat, lng));
       }, function(err){
+        this.map.panTo(new L.LatLng(lat, lng));
        console.log("Geolocation not supported", err);
       });
     
@@ -82,11 +101,13 @@ export class SearchComponent implements OnInit {
   }
 
   clickTo(){
+  console.log("click to")
     this.runsearchTo();
   }
 
   searchTo(event) {
   if(event.keyCode == 13) {
+    console.log("searchTo kode 13")
     this.runsearchTo();
   	}
   }
@@ -130,11 +151,45 @@ export class SearchComponent implements OnInit {
   }
 
   confirmTo(poi){
+  console.log("confirm to", poi);
   if (poi && poi.lat && poi.lng){
   	this.confirmedTo = poi;
     //L.marker(L.latLng(this.confirmedTo.lat, this.confirmedTo.lng)).addTo(this.map);
     this.panTo(poi);
+    console.log("assigning the name to poi");
+    poi.name = this.model.to;
+    console.log("confirm to saving");
+    this.geo.saveConfirmed(poi).subscribe( saved => {
+                        console.log(saved);
+                     },
+                     error =>  {
+                     console.log(error)
+                     });
     }
+  }
+
+  confirmSaved(poi){
+  if (poi && poi.lat && poi.lng){
+    this.confirmedTo = poi;
+    //L.marker(L.latLng(this.confirmedTo.lat, this.confirmedTo.lng)).addTo(this.map);
+    this.panTo(poi);
+    this.model.to = poi.name;
+    }
+  }
+
+  deletePoi(poi){
+    this.geo.deletePoi(poi).subscribe(answer => {
+                        console.log(answer);
+                        for (var i = this.savedSearches.length - 1; i >=0; i--){
+                          if (poi.id === this.savedSearches[i].id){
+                            this.savedSearches.splice(i, 1);
+                            break;
+                          }
+                        }
+                     },
+                     error =>  {
+                     console.log(error)
+                     });
   }
 
   panTo(poi){
@@ -154,6 +209,8 @@ export class SearchComponent implements OnInit {
       var poly = L.polygon(dots);
       var bounds = poly.getBounds();
       this.map.fitBounds(bounds, {padding: [20,20]});
+      //run route
+      this.onSubmit();
     }
     else if (poi) {
       this.map.panTo(L.latLng(poi.lat, poi.lng))
@@ -232,6 +289,10 @@ export class SearchComponent implements OnInit {
 
   toggleSecrets(){
       this.nosecrets = !this.nosecrets;
+  }
+
+  toggleSearches(){
+    this.showSearches = !this.showSearches;
   }
 
 }

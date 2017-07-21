@@ -33,7 +33,12 @@ export class LoginComponent {
       else{
         this.message = 'Invalid credentials ...';
       }
-    });
+    },
+    error => {
+      console.log(error);
+      this.message = error.msg;
+      }
+    );
   }
   logout() {
     this.authService.logout();

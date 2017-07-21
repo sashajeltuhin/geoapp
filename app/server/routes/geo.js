@@ -1,3 +1,5 @@
+var mongodb = require('../db/mongo');
+
 exports.lookup = function(req, res, next){
 	var obj = req.body;
     var place = obj.place;
@@ -24,16 +26,6 @@ exports.getLabels = function(req, res, next){
     labels.placeholder = process.env['GEO_PLACEHOLDER'] || "Enter a landmark or address";
     console.log("Labels", labels);
     res.send(labels);
-}
-
-exports.getLimit = function(req, res, next){
-    try{
-        var limit = process.env['CASH_LIMIT'] || 500;
-        res.send({limit:limit});
-    }
-    catch(e){
-        next(e);
-    }
 }
 
 exports.testmap = function (req, res, next){
@@ -481,4 +473,62 @@ function getRoutes(from, to, via, mode, callback ){
             callback("Unable to look up location. " + err, null);
         }
     });
+}
+
+exports.savePoi = function(req, res, next){
+    try{
+    var poi = req.body.poi;
+    var filter = {id: poi.id};
+        mongodb.upsert(null, "locations", poi, filter, function(err, answer){
+            console.log("mongo insert location", err, answer);
+            if (err){
+                next(err);
+            }
+            else{
+                res.send(poi);
+            }
+        });
+    }
+    catch(e){
+        next(e);
+    }
+}
+
+exports.deletePoi = function(req, res, next){
+    try{
+    var poi = req.body.poi;
+    console.log("about to delete poi", poi);
+    var filter = {id: poi.id};
+        mongodb.deleteBatch(null, "locations", filter, function(err, answer){
+            console.log("mongo delete location", err);
+            if (err){
+                next(err);
+            }
+            else{
+                res.send(answer);
+            }
+        });
+    }
+    catch(e){
+        next(e);
+    }
+}
+
+exports.loadSavedPois = function(req, res, next){
+    try{
+        var f = {}
+        f.limit = 5;
+        mongodb.load(null, "locations", f, function(err, pois){
+            console.log("mongo insert location", err, pois);
+            if (err){
+                next(err);
+            }
+            else{
+                res.send(pois);
+            }
+        });
+    }
+    catch(e){
+        next(e);
+    }
 }

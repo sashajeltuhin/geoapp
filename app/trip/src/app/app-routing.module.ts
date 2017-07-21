@@ -21,7 +21,8 @@ const routes: Routes = [
   {
     path: 'secrets',
     component: SecretsComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   },
   {
     path: 'map/:search',
