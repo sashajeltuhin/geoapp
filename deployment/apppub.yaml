@@ -18,7 +18,7 @@ spec:
         - name: GEO_DIR_KEY
           value: AIzaSyDp7yLyid5qJOIgQo1d_gt11NBBGCJivFA
         - name: GEO_APP_TITLE
-          value: 'Public Banking on Hyperflex'
+          value: 'Public Banking on HX'
         - name: GEO_TITLE
           value: 'Powered by '
         - name: GEO_PLACEHOLDER
