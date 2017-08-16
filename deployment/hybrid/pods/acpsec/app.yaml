@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: acpsec
-        image: docker.io/sashaz/acpsec:v9
+        image: docker.io/sashaz/acpsec:v10
         env:
         - name: GEO_KEY
           value: AIzaSyDr3iN4ZiOdk_X3t8Wx1s_Y6rvqxQUnsWI
@@ -26,7 +26,7 @@ spec:
         - name: CASH_LIMIT
           value: '1500'
         - name: LEGACY_URL
-          value: 'http://apps.ciscopaas.apprendalabs.com/api/services/json/r/interest(v1)/AccountAnalyzer/IAccountAnalyzer'  
+          value: 'http://apps.hxlab.cisco.com/api/services/json/r/hxbanking(v1)/AccountAnalyzer/IAccountAnalyzer'  
         ports:
         - containerPort: 8077
         args:

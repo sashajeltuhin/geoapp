@@ -1,2 +1,3 @@
 #!/bin/bash
-zip -r $1/hybrid.zip $1/hybrid/DeploymentManifest.xml $1/hybrid/pods $1/hybrid/services -x "*.DS_Store"
+cd $1/hybrid
+zip -r hybrid.zip DeploymentManifest.xml pods services -x "*.DS_Store"
