@@ -25,6 +25,8 @@ spec:
           value: 'Enter Branch Name... '
         - name: CASH_LIMIT
           value: '1500'
+        - name: LEGACY_URL
+          value: 'http://apps.hxlab.cisco.com/api/services/json/r/interest(v1)/AccountAnalyzer/IAccountAnalyzer'  
         ports:
         - containerPort: 8077
         args:

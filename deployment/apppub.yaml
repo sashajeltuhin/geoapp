@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: acpsec
-        image: docker.io/sashaz/acpsec:v9
+        image: docker.io/sashaz/acpsec:v10
         env:
         - name: GEO_KEY
           value: AIzaSyDr3iN4ZiOdk_X3t8Wx1s_Y6rvqxQUnsWI

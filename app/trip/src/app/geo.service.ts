@@ -50,6 +50,13 @@ private headers;
                   .catch(this.handler.handleError);
   }
 
+  getAccountData():Observable<any>{
+    this.addAuthHeader();
+    return this.http.get(this.url + "accountdata", {headers: this.headers})
+                  .map(this.extractData)
+                  .catch(this.handler.handleError);
+  }
+
   getRoute(from, to, via=null, mode=null):Observable<any>{
     this.addAuthHeader();
     var body:any = {};

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
+import { ChartsModule } from 'ng2-charts';
 
 import { HandlerService } from './handler.service';
 import { AppComponent } from './app.component';
@@ -35,7 +36,8 @@ import { SecretsComponent } from './secrets/secrets.component';
     HttpModule,
     AngularFontAwesomeModule,
     AppRoutingModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ChartsModule
   ],
   providers: [Title, GeoService, MapService, HandlerService, ErrorService],
   bootstrap: [AppComponent],

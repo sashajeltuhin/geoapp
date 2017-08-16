@@ -51,6 +51,7 @@ apiRoutes.post('/login', knock.login);
 apiRoutes.get('/testmap/:search', geo.testmap);
 apiRoutes.get('/account', passport.authenticate('jwt', { session: false}), person.getAccount);
 apiRoutes.get('/cashlimit', person.getLimit);
+apiRoutes.get('/accountdata', person.getAccountData);
 apiRoutes.post('/hack', acp.hack);
 apiRoutes.post('/lookup', geo.lookup);
 apiRoutes.post('/savePoi', geo.savePoi);
